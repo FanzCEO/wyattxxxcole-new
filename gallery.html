@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WYATT XXX COLE Gallery - Exclusive content previews">
+    <title>Gallery | WYATT XXX COLE</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/effects.css?v=2">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="index.html" class="nav__logo">
+                <img src="images/logo.png" alt="WYATT XXX COLE" class="nav__logo-img">
+            </a>
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="gallery.html" class="nav__link nav__link--active">Gallery</a></li>
+                <li><a href="booking.html" class="nav__link">Book Me</a></li>
+                <li><a href="merch.html" class="nav__link">Merch</a></li>
+                <li><a href="world.html" class="nav__link">World</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header__title"><span class="gradient-text">Gallery</span></h1>
+            <p class="page-header__subtitle">Exclusive content previews. Full access on my platforms.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="photos">Photos</button>
+                <button class="filter-btn" data-filter="videos">Videos</button>
+                <button class="filter-btn" data-filter="exclusive">Exclusive</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery gallery--full" id="galleryGrid">
+                <!-- Items will be loaded dynamically -->
+                <div class="gallery__loading">Loading gallery...</div>
+            </div>
+
+            <!-- CTA -->
+            <div class="gallery-cta text-center">
+                <h3>Want to See More?</h3>
+                <p>Full uncensored content available on my platforms</p>
+                <div class="hero__buttons">
+                    <a href="#" class="btn btn--primary">Boyfanz</a>
+                    <a href="#" class="btn btn--secondary">PupFanz</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox__close" id="lightboxClose">&times;</button>
+        <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+        </button>
+        <button class="lightbox__nav lightbox__nav--next" id="lightboxNext">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+        </button>
+        <div class="lightbox__content">
+            <img src="" alt="" id="lightboxImage">
+        </div>
+        <div class="lightbox__counter" id="lightboxCounter">1 / 10</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <img src="images/logo.png" alt="WYATT XXX COLE" class="footer__logo-img">
+                    </div>
+                    <p class="footer__tagline">"Country Bred. Fully Loaded."</p>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="gallery.html" class="footer__link">Gallery</a></li>
+                        <li><a href="booking.html" class="footer__link">Book Me</a></li>
+                        <li><a href="merch.html" class="footer__link">Merch Store</a></li>
+                        <li><a href="contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Platforms</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Boyfanz</a></li>
+                        <li><a href="#" class="footer__link">PupFanz</a></li>
+                        <li><a href="#" class="footer__link">Twitter/X</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Legal</h4>
+                    <ul class="footer__links">
+                        <li><a href="terms.html" class="footer__link">Terms</a></li>
+                        <li><a href="privacy.html" class="footer__link">Privacy</a></li>
+                        <li><a href="2257.html" class="footer__link">2257</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 WYATT XXX COLE. All Rights Reserved.</p>
+                <p>Must be 18+ to view.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=2"></script>
+    <script src="js/effects.js?v=2"></script>
+    <script>
+        // Gallery State
+        const galleryState = {
+            images: [],
+            currentIndex: 0,
+            filter: 'all'
+        };
+
+        // DOM Elements
+        const galleryGrid = document.getElementById('galleryGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        // Load gallery images from API
+        async function loadGallery() {
+            try {
+                const response = await fetch('api/upload.php?action=list-gallery');
+                const data = await response.json();
+
+                if (data.success && data.images.length > 0) {
+                    galleryState.images = data.images.map((img, index) => ({
+                        ...img,
+                        category: getRandomCategory(),
+                        isNew: index < 3,
+                        isExclusive: Math.random() > 0.7
+                    }));
+                    renderGallery();
+                } else {
+                    // Show placeholder content if no uploads yet
+                    renderPlaceholders();
+                }
+            } catch (error) {
+                console.error('Failed to load gallery:', error);
+                renderPlaceholders();
+            }
+        }
+
+        function getRandomCategory() {
+            const categories = ['photos', 'photos', 'photos', 'videos', 'exclusive'];
+            return categories[Math.floor(Math.random() * categories.length)];
+        }
+
+        function renderGallery() {
+            const filtered = galleryState.filter === 'all'
+                ? galleryState.images
+                : galleryState.images.filter(img => img.category === galleryState.filter);
+
+            if (filtered.length === 0) {
+                galleryGrid.innerHTML = '<div class="gallery__empty">No images in this category yet.</div>';
+                return;
+            }
+
+            galleryGrid.innerHTML = filtered.map((img, index) => `
+                <div class="gallery__item" data-index="${galleryState.images.indexOf(img)}" data-category="${img.category}">
+                    <img src="${img.url}" alt="Gallery image" loading="lazy">
+                    <div class="gallery__overlay">
+                        ${img.isNew ? '<span class="badge badge--gold">New</span>' : ''}
+                        ${img.isExclusive ? '<span class="badge badge--rust">Exclusive</span>' : ''}
+                        ${img.category === 'videos' ? `
+                            <svg class="play-icon" viewBox="0 0 24 24" width="48" height="48" fill="#C68E3F">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        ` : ''}
+                        <div class="gallery__zoom">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                                <path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Add click handlers
+            document.querySelectorAll('.gallery__item').forEach(item => {
+                item.addEventListener('click', () => openLightbox(parseInt(item.dataset.index)));
+            });
+        }
+
+        function renderPlaceholders() {
+            const placeholders = [
+                { category: 'photos', isNew: true },
+                { category: 'photos', isNew: false },
+                { category: 'exclusive', isExclusive: true },
+                { category: 'videos', isNew: false },
+                { category: 'photos', isNew: false },
+                { category: 'exclusive', isExclusive: true },
+                { category: 'videos', isNew: false },
+                { category: 'photos', isNew: true }
+            ];
+
+            galleryState.images = placeholders.map((p, i) => ({
+                url: `images/placeholder-${i + 1}.jpg`,
+                ...p
+            }));
+
+            renderGallery();
+        }
+
+        // Lightbox Functions
+        function openLightbox(index) {
+            galleryState.currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            const img = galleryState.images[galleryState.currentIndex];
+            lightboxImage.src = img.url;
+            lightboxCounter.textContent = `${galleryState.currentIndex + 1} / ${galleryState.images.length}`;
+        }
+
+        function prevImage() {
+            galleryState.currentIndex = (galleryState.currentIndex - 1 + galleryState.images.length) % galleryState.images.length;
+            updateLightbox();
+        }
+
+        function nextImage() {
+            galleryState.currentIndex = (galleryState.currentIndex + 1) % galleryState.images.length;
+            updateLightbox();
+        }
+
+        // Event Listeners
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', prevImage);
+        document.getElementById('lightboxNext').addEventListener('click', nextImage);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        // Touch/Swipe support
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+        lightbox.addEventListener('touchend', (e) => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextImage();
+                else prevImage();
+            }
+        });
+
+        // Filter functionality
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                galleryState.filter = btn.dataset.filter;
+                renderGallery();
+            });
+        });
+
+        // Initialize
+        loadGallery();
+    </script>
+
+    <style>
+        .page-header {
+            padding: calc(100px + var(--space-2xl)) 0 var(--space-2xl);
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+        .page-header__title {
+            margin-bottom: var(--space-sm);
+        }
+        .page-header__subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--bg-card);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            font-family: var(--font-condensed);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--whiskey);
+            color: var(--bg-primary);
+            border-color: var(--whiskey);
+        }
+
+        .gallery--full {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .gallery__item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--bg-card);
+        }
+        .gallery__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery__item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: var(--space-md);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery__item:hover .gallery__overlay {
+            opacity: 1;
+        }
+        .gallery__zoom {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(198, 142, 63, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .gallery__item:hover .gallery__zoom {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .gallery__loading,
+        .gallery__empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: var(--space-3xl);
+            color: var(--text-muted);
+        }
+
+        .gallery-cta {
+            margin-top: var(--space-3xl);
+            padding: var(--space-2xl);
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+        }
+        .gallery-cta h3 {
+            margin-bottom: var(--space-sm);
+        }
+        .gallery-cta p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.8;
+            transition: var(--transition-normal);
+            pointer-events: none;
+        }
+        .gallery__item:hover .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lightbox__content {
+            max-width: 90vw;
+            max-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox__content img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox__close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(198, 142, 63, 0.2);
+            border: none;
+            border-radius: 50%;
+            color: var(--cream);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox__close:hover {
+            background: var(--whiskey);
+            color: #000;
+        }
+        .lightbox__nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(198, 142, 63, 0.2);
+            border: none;
+            border-radius: 50%;
+            color: var(--cream);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox__nav:hover {
+            background: var(--whiskey);
+            color: #000;
+        }
+        .lightbox__nav--prev { left: 20px; }
+        .lightbox__nav--next { right: 20px; }
+        .lightbox__counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            color: var(--cream);
+            font-family: var(--font-condensed);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox__nav { display: none; }
+            .gallery--full {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-sm);
+            }
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge--gold {
+            background: var(--whiskey);
+            color: #000;
+        }
+        .badge--rust {
+            background: var(--rust);
+            color: var(--cream);
+        }
+    </style>
+</body>
+</html>

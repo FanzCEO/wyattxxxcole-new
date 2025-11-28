@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WYATT XXX COLE Official Merch - Rep the brand">
+    <title>Merch | WYATT XXX COLE</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/effects.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="index.html" class="nav__logo">WYATT <span>XXX</span> COLE</a>
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+                <li><a href="booking.html" class="nav__link">Book Me</a></li>
+                <li><a href="merch.html" class="nav__link nav__link--active">Merch</a></li>
+                <li><a href="world.html" class="nav__link">World</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header__title"><span class="gradient-text">Merch Store</span></h1>
+            <p class="page-header__subtitle">Rep the brand. Country Boy swagger.</p>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="section">
+        <div class="container">
+            <div class="products" id="productsGrid">
+                <!-- Product 1 -->
+                <div class="product">
+                    <div class="product__image">
+                        <img src="images/merch-hat.jpg" alt="WXXXC Trucker Hat" loading="lazy">
+                        <span class="product__badge">New</span>
+                    </div>
+                    <div class="product__content">
+                        <h3 class="product__title">WXXXC Trucker Hat</h3>
+                        <p class="product__description">Classic trucker style with embroidered logo</p>
+                        <div class="product__price">$35.00</div>
+                        <button class="btn btn--primary btn--full" onclick="addToCart('hat')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product">
+                    <div class="product__image">
+                        <img src="images/merch-tee.jpg" alt="Country Bred Tee" loading="lazy">
+                    </div>
+                    <div class="product__content">
+                        <h3 class="product__title">Country Bred Tee</h3>
+                        <p class="product__description">Soft cotton with distressed print</p>
+                        <div class="product__price">$30.00</div>
+                        <button class="btn btn--primary btn--full" onclick="addToCart('tee')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product">
+                    <div class="product__image">
+                        <img src="images/merch-hoodie.jpg" alt="WXXXC Hoodie" loading="lazy">
+                        <span class="product__badge">Popular</span>
+                    </div>
+                    <div class="product__content">
+                        <h3 class="product__title">WXXXC Hoodie</h3>
+                        <p class="product__description">Heavy weight fleece with front logo</p>
+                        <div class="product__price">$55.00</div>
+                        <button class="btn btn--primary btn--full" onclick="addToCart('hoodie')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product">
+                    <div class="product__image">
+                        <img src="images/merch-tank.jpg" alt="Fully Loaded Tank" loading="lazy">
+                    </div>
+                    <div class="product__content">
+                        <h3 class="product__title">Fully Loaded Tank</h3>
+                        <p class="product__description">Show off those arms, country style</p>
+                        <div class="product__price">$25.00</div>
+                        <button class="btn btn--primary btn--full" onclick="addToCart('tank')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product">
+                    <div class="product__image">
+                        <img src="images/merch-jock.jpg" alt="WXXXC Jockstrap" loading="lazy">
+                        <span class="product__badge hot">Hot</span>
+                    </div>
+                    <div class="product__content">
+                        <h3 class="product__title">WXXXC Jockstrap</h3>
+                        <p class="product__description">Premium comfort with logo waistband</p>
+                        <div class="product__price">$28.00</div>
+                        <button class="btn btn--primary btn--full" onclick="addToCart('jock')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product">
+                    <div class="product__image">
+                        <img src="images/merch-poster.jpg" alt="Signed Poster" loading="lazy">
+                    </div>
+                    <div class="product__content">
+                        <h3 class="product__title">Signed Poster</h3>
+                        <p class="product__description">18x24 high quality print, hand signed</p>
+                        <div class="product__price">$40.00</div>
+                        <button class="btn btn--primary btn--full" onclick="addToCart('poster')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Orders CTA -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="custom-cta text-center">
+                <h2>Want Something <span class="gradient-text">Special</span>?</h2>
+                <p>Custom worn items and personalized merch available. Hit me up for pricing.</p>
+                <a href="contact.html" class="btn btn--rust">Contact for Custom Orders</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">WYATT <span>XXX</span> COLE</div>
+                    <p class="footer__tagline">"Country Bred. Fully Loaded."</p>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="gallery.html" class="footer__link">Gallery</a></li>
+                        <li><a href="booking.html" class="footer__link">Book Me</a></li>
+                        <li><a href="merch.html" class="footer__link">Merch Store</a></li>
+                        <li><a href="contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Platforms</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Boyfanz</a></li>
+                        <li><a href="#" class="footer__link">PupFanz</a></li>
+                        <li><a href="#" class="footer__link">Twitter/X</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Legal</h4>
+                    <ul class="footer__links">
+                        <li><a href="terms.html" class="footer__link">Terms</a></li>
+                        <li><a href="privacy.html" class="footer__link">Privacy</a></li>
+                        <li><a href="2257.html" class="footer__link">2257</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 WYATT XXX COLE. All Rights Reserved.</p>
+                <p>Must be 18+ to view.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=2"></script>
+    <script src="js/effects.js?v=2"></script>
+    <script>
+        function addToCart(item) {
+            showNotification(`${item.toUpperCase()} added to cart!`, 'success');
+        }
+    </script>
+
+    <style>
+        .page-header {
+            padding: calc(100px + var(--space-2xl)) 0 var(--space-2xl);
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+        .page-header__title { margin-bottom: var(--space-sm); }
+        .page-header__subtitle { color: var(--text-secondary); font-size: 1.125rem; }
+
+        .product__badge {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            background: var(--gradient-whiskey);
+            color: var(--bg-primary);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-condensed);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .product__badge.hot {
+            background: var(--gradient-rust);
+            color: var(--cream);
+        }
+        .product__description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-md);
+        }
+        .btn--full { width: 100%; }
+
+        .custom-cta {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .custom-cta h2 {
+            margin-bottom: var(--space-md);
+        }
+        .custom-cta p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+    </style>
+</body>
+</html>

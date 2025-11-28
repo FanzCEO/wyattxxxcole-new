@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>404 - Page Not Found | Wyatt XXX Cole</title>
+    <link rel="stylesheet" href="css/styles.css?v=999">
+    <link rel="stylesheet" href="css/effects.css?v=999">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤠</text></svg>">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-family: var(--font-heading);
+            font-size: clamp(6rem, 20vw, 12rem);
+            font-weight: 900;
+            background: var(--gradient-purple-cyan);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 1rem;
+            animation: glitch 2s infinite;
+        }
+
+        .error-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">WXXXC</a>
+        </div>
+    </nav>
+
+    <main class="error-page">
+        <div>
+            <div class="error-code">404</div>
+            <h1 class="error-title">Signal Lost</h1>
+            <p class="error-message">
+                The page you're looking for has vanished into the neon void.
+                Maybe it never existed, or maybe it's just hiding in the shadows.
+            </p>
+            <div class="flex-center gap-md" style="flex-wrap: wrap;">
+                <a href="index.html" class="btn btn--primary">Back to Home</a>
+                <a href="links.html" class="btn btn--outline">Link Hub</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/api.js?v=999"></script>
+    <script src="js/main.js?v=999"></script>
+    <script src="js/effects.js?v=999"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wyatt XXX Cole Shop - Country boy merch, apparel, prints, and digital goods. Rep the brand.">
+    <meta name="keywords" content="Wyatt XXX Cole, shop, merch, apparel, prints, WXXXC, country, redneck">
+    <meta property="og:title" content="Shop | Wyatt XXX Cole">
+    <meta property="og:description" content="WXXXC merchandise and exclusive content. Country bred goods.">
+    <title>Shop | Wyatt XXX Cole</title>
+    <link rel="stylesheet" href="css/styles.css?v=999">
+    <link rel="stylesheet" href="css/effects.css?v=999">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤠</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">WXXXC</a>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="world.html" class="nav__link">Wyatt World</a></li>
+                <li><a href="studios.html" class="nav__link">For Studios</a></li>
+                <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+                <li><a href="shop.html" class="nav__link nav__link--active">Shop</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="hero__background"></div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content animate-fade-in">
+            <p class="hero__subtitle" style="margin-bottom: 1rem;">Merch & Art</p>
+            <h1 class="hero__title">
+                <span class="gradient-text">SHOP</span>
+            </h1>
+            <p class="hero__tagline">Exclusive merch. Premium content. Wear the mark.</p>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="section" style="padding-bottom: 0;">
+        <div class="container">
+            <div class="tabs" style="justify-content: center;">
+                <button class="tab tab--active" data-tab="all">All</button>
+                <button class="tab" data-tab="apparel">Apparel</button>
+                <button class="tab" data-tab="prints">Prints</button>
+                <button class="tab" data-tab="digital">Digital</button>
+                <button class="tab" data-tab="limited">Limited</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section">
+        <div class="container">
+            <!-- All Products Tab -->
+            <div class="tab-content tab-content--active" id="all">
+                <div class="products">
+                    <!-- Product 1 -->
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 2rem; color: var(--whiskey);">WXC</span>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Logo Tee</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Apparel</p>
+                            <h3 class="product__title">WXC Logo Tee - Black</h3>
+                            <p class="product__price">$35</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #16213e, #1a1a2e); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--rust);">NEON</span>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Hoodie</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Apparel</p>
+                            <h3 class="product__title">Neon Rebel Hoodie</h3>
+                            <p class="product__price">$65</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #0a1a2e, #1a0a2e); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--whiskey-light);">CYBER</span>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Print</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Prints</p>
+                            <h3 class="product__title">Cyberpunk Portrait Print</h3>
+                            <p class="product__price">$45</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a0a2e, #0a1a2e); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 1rem; color: var(--chrome);">WALLPAPER</span>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Digital Pack</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Digital</p>
+                            <h3 class="product__title">Neon Wallpaper Pack (10)</h3>
+                            <p class="product__price">$15</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a1a0a, #1a2a0a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--alert-red);">SIGNED</span>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Limited</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Limited</p>
+                            <h3 class="product__title">Signed 8x10 Print</h3>
+                            <p class="product__price">$75</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a2e, #2a1a2e); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--whiskey);">WXC</span>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Cap</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Apparel</p>
+                            <h3 class="product__title">WXC Snapback Cap</h3>
+                            <p class="product__price">$30</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #0a2a2a, #1a1a2a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 1rem; color: var(--rust);">POSTER</span>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">24x36</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Prints</p>
+                            <h3 class="product__title">Neon Noir Poster 24x36</h3>
+                            <p class="product__price">$25</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a0a1a, #0a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 1rem; color: var(--whiskey-light);">REBEL</span>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Tank</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Apparel</p>
+                            <h3 class="product__title">Rebel Cut Tank Top</h3>
+                            <p class="product__price">$28</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apparel Tab -->
+            <div class="tab-content" id="apparel">
+                <div class="products">
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <span style="font-family: var(--font-heading); font-size: 2rem; color: var(--whiskey);">WXC</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Apparel</p>
+                            <h3 class="product__title">WXC Logo Tee - Black</h3>
+                            <p class="product__price">$35</p>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #16213e, #1a1a2e); display: flex; align-items: center; justify-content: center;">
+                                <span style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--rust);">NEON</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Apparel</p>
+                            <h3 class="product__title">Neon Rebel Hoodie</h3>
+                            <p class="product__price">$65</p>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a2e, #2a1a2e); display: flex; align-items: center; justify-content: center;">
+                                <span style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--whiskey);">WXC</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Apparel</p>
+                            <h3 class="product__title">WXC Snapback Cap</h3>
+                            <p class="product__price">$30</p>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a0a1a, #0a1a1a); display: flex; align-items: center; justify-content: center;">
+                                <span style="font-family: var(--font-heading); font-size: 1rem; color: var(--whiskey-light);">REBEL</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Apparel</p>
+                            <h3 class="product__title">Rebel Cut Tank Top</h3>
+                            <p class="product__price">$28</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prints Tab -->
+            <div class="tab-content" id="prints">
+                <div class="products">
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #0a1a2e, #1a0a2e); display: flex; align-items: center; justify-content: center;">
+                                <span style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--whiskey-light);">CYBER</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Prints</p>
+                            <h3 class="product__title">Cyberpunk Portrait Print</h3>
+                            <p class="product__price">$45</p>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #0a2a2a, #1a1a2a); display: flex; align-items: center; justify-content: center;">
+                                <span style="font-family: var(--font-heading); font-size: 1rem; color: var(--rust);">POSTER</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Prints</p>
+                            <h3 class="product__title">Neon Noir Poster 24x36</h3>
+                            <p class="product__price">$25</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Tab -->
+            <div class="tab-content" id="digital">
+                <div class="products">
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a0a2e, #0a1a2e); display: flex; align-items: center; justify-content: center;">
+                                <span style="font-family: var(--font-heading); font-size: 1rem; color: var(--chrome);">WALLPAPER</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Digital</p>
+                            <h3 class="product__title">Neon Wallpaper Pack (10)</h3>
+                            <p class="product__price">$15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Limited Tab -->
+            <div class="tab-content" id="limited">
+                <div class="products">
+                    <div class="product">
+                        <div class="product__image">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a1a0a, #1a2a0a); display: flex; align-items: center; justify-content: center;">
+                                <span style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--alert-red);">SIGNED</span>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <p class="product__category">Limited</p>
+                            <h3 class="product__title">Signed 8x10 Print</h3>
+                            <p class="product__price">$75</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="grid grid-3" style="max-width: 900px; margin: 0 auto;">
+                <div class="card text-center">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">&#128230;</div>
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.25rem;">Worldwide Shipping</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Ships from LA</p>
+                </div>
+                <div class="card text-center">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">&#128274;</div>
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.25rem;">Secure Checkout</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Encrypted payments</p>
+                </div>
+                <div class="card text-center">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">&#9889;</div>
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.25rem;">Digital Delivery</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Instant downloads</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section">
+        <div class="container">
+            <div class="card" style="max-width: 600px; margin: 0 auto; padding: var(--spacing-lg); text-align: center;">
+                <h2 class="mb-sm" style="font-size: 1.5rem;">Drop Alerts</h2>
+                <p class="mb-md" style="color: var(--text-secondary);">
+                    Be the first to know about new merch drops and limited editions.
+                </p>
+                <form class="form" id="shopNewsletterForm">
+                    <div class="form__row">
+                        <div class="form__group" style="flex: 1;">
+                            <input type="email" class="form__input" placeholder="Your email" required>
+                        </div>
+                        <div class="form__group" style="flex: 0;">
+                            <button type="submit" class="btn btn--primary">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <div class="footer__logo">WXXXC</div>
+                    <p class="footer__tagline">Country boy. Dirty mind. No apologies.<br>Gay. Masc. Redneck.</p>
+                </div>
+                <div>
+                    <h4 class="footer__nav-title">Navigation</h4>
+                    <ul class="footer__nav-links">
+                        <li><a href="index.html" class="footer__nav-link">Home</a></li>
+                        <li><a href="studios.html" class="footer__nav-link">For Studios</a></li>
+                        <li><a href="portfolio.html" class="footer__nav-link">Portfolio</a></li>
+                        <li><a href="schedule.html" class="footer__nav-link">Schedule</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__nav-title">Connect</h4>
+                    <ul class="footer__nav-links">
+                        <li><a href="community.html" class="footer__nav-link">Community</a></li>
+                        <li><a href="shop.html" class="footer__nav-link">Shop</a></li>
+                        <li><a href="contact.html" class="footer__nav-link">Contact</a></li>
+                        <li><a href="links.html" class="footer__nav-link">Link Hub</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__nav-title">Follow</h4>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="Twitter/X">X</a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="footer__social-link" aria-label="TikTok">TT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Wyatt XXX Cole. All rights reserved.</p>
+                <p>18+ Only | Adult Content</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js?v=999"></script>
+    <script src="js/main.js?v=999"></script>
+    <script src="js/effects.js?v=999"></script>
+</body>
+</html>

@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book WYATT XXX COLE - Custom content, live sessions, and more">
+    <title>Book Me | WYATT XXX COLE</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/effects.css?v=2">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="index.html" class="nav__logo">
+                <img src="images/logo.png" alt="WYATT XXX COLE" class="nav__logo-img">
+            </a>
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+                <li><a href="booking.html" class="nav__link nav__link--active">Book Me</a></li>
+                <li><a href="merch.html" class="nav__link">Merch</a></li>
+                <li><a href="world.html" class="nav__link">World</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header__title"><span class="gradient-text">Book Me</span></h1>
+            <p class="page-header__subtitle">Custom content and live sessions tailored just for you</p>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Services</span>
+                <h2 class="section__title">What I <span class="gradient-text">Offer</span></h2>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Custom Video -->
+                <div class="pricing-card" data-service="custom-video" data-price="50">
+                    <div class="pricing-card__header">
+                        <h3>Custom Videos</h3>
+                        <div class="pricing-card__price">
+                            <span class="currency">$</span>
+                            <span class="amount">50</span>
+                            <span class="period">starting</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li><span class="check"></span>5-10 minute videos</li>
+                        <li><span class="check"></span>Name use available</li>
+                        <li><span class="check"></span>Outfit/scenario requests</li>
+                        <li><span class="check"></span>48hr delivery</li>
+                        <li><span class="check"></span>HD quality</li>
+                    </ul>
+                    <button class="btn btn--primary btn--full select-service" data-service="custom-video">Select</button>
+                </div>
+
+                <!-- Live Session - Featured -->
+                <div class="pricing-card pricing-card--featured" data-service="live-session" data-price="100">
+                    <div class="pricing-card__badge">Most Popular</div>
+                    <div class="pricing-card__header">
+                        <h3>Live Sessions</h3>
+                        <div class="pricing-card__price">
+                            <span class="currency">$</span>
+                            <span class="amount">100</span>
+                            <span class="period">starting</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li><span class="check"></span>15-30 minute sessions</li>
+                        <li><span class="check"></span>Real-time interaction</li>
+                        <li><span class="check"></span>Flexible scheduling</li>
+                        <li><span class="check"></span>100% private</li>
+                        <li><span class="check"></span>Platform of your choice</li>
+                        <li><span class="check"></span>Extended time available</li>
+                    </ul>
+                    <button class="btn btn--primary btn--full select-service" data-service="live-session">Select</button>
+                </div>
+
+                <!-- Rating -->
+                <div class="pricing-card" data-service="rating" data-price="25">
+                    <div class="pricing-card__header">
+                        <h3>Ratings</h3>
+                        <div class="pricing-card__price">
+                            <span class="currency">$</span>
+                            <span class="amount">25</span>
+                            <span class="period">starting</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li><span class="check"></span>Text or video response</li>
+                        <li><span class="check"></span>Detailed honest feedback</li>
+                        <li><span class="check"></span>24hr turnaround</li>
+                        <li><span class="check"></span>Comparison available</li>
+                    </ul>
+                    <button class="btn btn--primary btn--full select-service" data-service="rating">Select</button>
+                </div>
+
+                <!-- Sexting -->
+                <div class="pricing-card" data-service="sexting" data-price="30">
+                    <div class="pricing-card__header">
+                        <h3>Sexting</h3>
+                        <div class="pricing-card__price">
+                            <span class="currency">$</span>
+                            <span class="amount">30</span>
+                            <span class="period">per 30min</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li><span class="check"></span>Real-time messaging</li>
+                        <li><span class="check"></span>Photos included</li>
+                        <li><span class="check"></span>Voice notes optional</li>
+                        <li><span class="check"></span>Your platform choice</li>
+                    </ul>
+                    <button class="btn btn--primary btn--full select-service" data-service="sexting">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="section section--alt" id="booking-form">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle">Book Now</span>
+                <h2 class="section__title">Complete Your <span class="gradient-text">Booking</span></h2>
+            </div>
+
+            <div class="booking-container">
+                <!-- Step Indicator -->
+                <div class="booking-steps">
+                    <div class="booking-step active" data-step="1">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Service</span>
+                    </div>
+                    <div class="booking-step" data-step="2">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Details</span>
+                    </div>
+                    <div class="booking-step" data-step="3">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Confirm</span>
+                    </div>
+                </div>
+
+                <form id="bookingForm" class="booking-form">
+                    <!-- Step 1: Service Selection -->
+                    <div class="form-step active" data-step="1">
+                        <h3>Select Your Service</h3>
+                        <div class="service-options">
+                            <label class="service-option">
+                                <input type="radio" name="service" value="custom-video" required>
+                                <div class="service-option__content">
+                                    <span class="service-option__name">Custom Video</span>
+                                    <span class="service-option__price">$50+</span>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="live-session">
+                                <div class="service-option__content">
+                                    <span class="service-option__name">Live Session</span>
+                                    <span class="service-option__price">$100+</span>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="rating">
+                                <div class="service-option__content">
+                                    <span class="service-option__name">Rating</span>
+                                    <span class="service-option__price">$25+</span>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="sexting">
+                                <div class="service-option__content">
+                                    <span class="service-option__name">Sexting</span>
+                                    <span class="service-option__price">$30/30min</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Calendar for Live Sessions -->
+                        <div class="calendar-section" id="calendarSection" style="display: none;">
+                            <h4>Select Preferred Date</h4>
+                            <div class="calendar" id="calendar">
+                                <div class="calendar__header">
+                                    <button type="button" class="calendar__nav" id="prevMonth">&lt;</button>
+                                    <span class="calendar__month" id="calendarMonth">December 2025</span>
+                                    <button type="button" class="calendar__nav" id="nextMonth">&gt;</button>
+                                </div>
+                                <div class="calendar__weekdays">
+                                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                                </div>
+                                <div class="calendar__days" id="calendarDays"></div>
+                            </div>
+                            <input type="hidden" name="preferred_date" id="preferredDate">
+
+                            <div class="time-slots" id="timeSlots">
+                                <h4>Available Times</h4>
+                                <div class="time-slots__grid">
+                                    <label class="time-slot"><input type="radio" name="time_slot" value="10:00"><span>10:00 AM</span></label>
+                                    <label class="time-slot"><input type="radio" name="time_slot" value="12:00"><span>12:00 PM</span></label>
+                                    <label class="time-slot"><input type="radio" name="time_slot" value="14:00"><span>2:00 PM</span></label>
+                                    <label class="time-slot"><input type="radio" name="time_slot" value="16:00"><span>4:00 PM</span></label>
+                                    <label class="time-slot"><input type="radio" name="time_slot" value="18:00"><span>6:00 PM</span></label>
+                                    <label class="time-slot"><input type="radio" name="time_slot" value="20:00"><span>8:00 PM</span></label>
+                                    <label class="time-slot"><input type="radio" name="time_slot" value="22:00"><span>10:00 PM</span></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn--primary btn--full next-step">Continue</button>
+                    </div>
+
+                    <!-- Step 2: Details -->
+                    <div class="form-step" data-step="2">
+                        <h3>Your Details</h3>
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label class="form__label" for="name">Name / Alias *</label>
+                                <input type="text" id="name" name="name" class="form__input" required>
+                            </div>
+                            <div class="form__group">
+                                <label class="form__label" for="email">Email *</label>
+                                <input type="email" id="email" name="email" class="form__input" required>
+                            </div>
+                        </div>
+
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label class="form__label" for="platform">Preferred Platform *</label>
+                                <select id="platform" name="platform" class="form__select" required>
+                                    <option value="">Select platform...</option>
+                                    <option value="boyfanz">Boyfanz</option>
+                                    <option value="pupfanz">PupFanz</option>
+                                    <option value="telegram">Telegram</option>
+                                    <option value="snapchat">Snapchat</option>
+                                    <option value="twitter">Twitter DM</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form__group">
+                                <label class="form__label" for="username">Platform Username</label>
+                                <input type="text" id="username" name="username" class="form__input" placeholder="@username">
+                            </div>
+                        </div>
+
+                        <div class="form__group">
+                            <label class="form__label" for="details">Request Details *</label>
+                            <textarea id="details" name="details" class="form__textarea" rows="5" placeholder="Describe what you're looking for in detail..." required></textarea>
+                        </div>
+
+                        <div class="form__row">
+                            <button type="button" class="btn btn--secondary prev-step">Back</button>
+                            <button type="button" class="btn btn--primary next-step">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Confirmation -->
+                    <div class="form-step" data-step="3">
+                        <h3>Review & Confirm</h3>
+                        <div class="booking-summary" id="bookingSummary">
+                            <!-- Populated by JS -->
+                        </div>
+
+                        <div class="form__group">
+                            <label class="form__checkbox">
+                                <input type="checkbox" name="age_confirm" required>
+                                <span>I confirm I am 18+ years old</span>
+                            </label>
+                        </div>
+                        <div class="form__group">
+                            <label class="form__checkbox">
+                                <input type="checkbox" name="terms_confirm" required>
+                                <span>I agree to the <a href="terms.html" target="_blank">Terms of Service</a></span>
+                            </label>
+                        </div>
+
+                        <div class="form__row">
+                            <button type="button" class="btn btn--secondary prev-step">Back</button>
+                            <button type="submit" class="btn btn--primary">Submit Booking</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div class="booking-success" id="bookingSuccess" style="display: none;">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="#C68E3F" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <h3>Booking Request Submitted!</h3>
+                    <p>Thanks for your request! I'll review it and get back to you within 24 hours with pricing and next steps.</p>
+                    <p class="text-muted">Check your email for a confirmation.</p>
+                    <a href="index.html" class="btn btn--primary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <img src="images/logo.png" alt="WYATT XXX COLE" class="footer__logo-img">
+                    </div>
+                    <p class="footer__tagline">"Country Bred. Fully Loaded."</p>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="gallery.html" class="footer__link">Gallery</a></li>
+                        <li><a href="booking.html" class="footer__link">Book Me</a></li>
+                        <li><a href="merch.html" class="footer__link">Merch Store</a></li>
+                        <li><a href="contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Platforms</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Boyfanz</a></li>
+                        <li><a href="#" class="footer__link">PupFanz</a></li>
+                        <li><a href="#" class="footer__link">Twitter/X</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4 class="footer__title">Legal</h4>
+                    <ul class="footer__links">
+                        <li><a href="terms.html" class="footer__link">Terms</a></li>
+                        <li><a href="privacy.html" class="footer__link">Privacy</a></li>
+                        <li><a href="2257.html" class="footer__link">2257</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 WYATT XXX COLE. All Rights Reserved.</p>
+                <p>Must be 18+ to view.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=2"></script>
+    <script src="js/effects.js?v=2"></script>
+    <script>
+        // Load pricing from API
+        let bookingPrices = {};
+
+        async function loadPricing() {
+            try {
+                const res = await fetch('api/pricing.php?action=get-booking');
+                const data = await res.json();
+                if (data.success && data.booking) {
+                    bookingPrices = data.booking;
+                    updatePricingDisplay(data.booking);
+                }
+            } catch (err) {
+                console.log('Using default prices');
+            }
+        }
+
+        function updatePricingDisplay(pricing) {
+            // Update pricing cards
+            if (pricing.customVideos) {
+                const card = document.querySelector('[data-service="custom-video"]');
+                if (card) {
+                    card.dataset.price = pricing.customVideos.basePrice;
+                    card.querySelector('.amount').textContent = pricing.customVideos.basePrice;
+                    card.querySelector('.period').textContent = pricing.customVideos.priceLabel?.toLowerCase() || 'starting';
+                }
+                // Update form option
+                const opt = document.querySelector('.service-option__price[data-service="custom-video"]');
+                if (opt) opt.textContent = `$${pricing.customVideos.basePrice}+`;
+            }
+
+            if (pricing.liveSessions) {
+                const card = document.querySelector('[data-service="live-session"]');
+                if (card) {
+                    card.dataset.price = pricing.liveSessions.basePrice;
+                    card.querySelector('.amount').textContent = pricing.liveSessions.basePrice;
+                    card.querySelector('.period').textContent = pricing.liveSessions.priceLabel?.toLowerCase() || 'starting';
+                }
+            }
+
+            if (pricing.ratings) {
+                const card = document.querySelector('[data-service="rating"]');
+                if (card) {
+                    card.dataset.price = pricing.ratings.basePrice;
+                    card.querySelector('.amount').textContent = pricing.ratings.basePrice;
+                    card.querySelector('.period').textContent = pricing.ratings.priceLabel?.toLowerCase() || 'starting';
+                }
+            }
+
+            if (pricing.sexting) {
+                const card = document.querySelector('[data-service="sexting"]');
+                if (card) {
+                    card.dataset.price = pricing.sexting.basePrice;
+                    card.querySelector('.amount').textContent = pricing.sexting.basePrice;
+                    card.querySelector('.period').textContent = pricing.sexting.priceLabel?.toLowerCase() || 'per 30min';
+                }
+            }
+
+            // Update service option prices in form
+            updateServiceOptions();
+        }
+
+        function updateServiceOptions() {
+            const options = document.querySelectorAll('.service-option');
+            options.forEach(opt => {
+                const input = opt.querySelector('input');
+                const priceEl = opt.querySelector('.service-option__price');
+                if (input && priceEl) {
+                    const service = input.value;
+                    const priceMap = {
+                        'custom-video': bookingPrices.customVideos?.basePrice || 50,
+                        'live-session': bookingPrices.liveSessions?.basePrice || 100,
+                        'rating': bookingPrices.ratings?.basePrice || 25,
+                        'sexting': bookingPrices.sexting?.basePrice || 30
+                    };
+                    const labelMap = {
+                        'custom-video': '+',
+                        'live-session': '+',
+                        'rating': '+',
+                        'sexting': '/30min'
+                    };
+                    priceEl.textContent = `$${priceMap[service]}${labelMap[service]}`;
+                }
+            });
+        }
+
+        // Load pricing on page load
+        loadPricing();
+
+        // Booking Form Logic
+        const form = document.getElementById('bookingForm');
+        const steps = document.querySelectorAll('.form-step');
+        const stepIndicators = document.querySelectorAll('.booking-step');
+        let currentStep = 1;
+
+        // Service selection from pricing cards
+        document.querySelectorAll('.select-service').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const service = btn.dataset.service;
+                document.querySelector(`input[value="${service}"]`).checked = true;
+                document.getElementById('booking-form').scrollIntoView({ behavior: 'smooth' });
+                handleServiceChange();
+            });
+        });
+
+        // Handle service change
+        document.querySelectorAll('input[name="service"]').forEach(radio => {
+            radio.addEventListener('change', handleServiceChange);
+        });
+
+        function handleServiceChange() {
+            const service = document.querySelector('input[name="service"]:checked')?.value;
+            const calendarSection = document.getElementById('calendarSection');
+
+            if (service === 'live-session') {
+                calendarSection.style.display = 'block';
+            } else {
+                calendarSection.style.display = 'none';
+            }
+        }
+
+        // Navigation
+        document.querySelectorAll('.next-step').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (validateStep(currentStep)) {
+                    goToStep(currentStep + 1);
+                }
+            });
+        });
+
+        document.querySelectorAll('.prev-step').forEach(btn => {
+            btn.addEventListener('click', () => goToStep(currentStep - 1));
+        });
+
+        function goToStep(step) {
+            steps.forEach(s => s.classList.remove('active'));
+            stepIndicators.forEach(s => s.classList.remove('active', 'completed'));
+
+            document.querySelector(`.form-step[data-step="${step}"]`).classList.add('active');
+
+            stepIndicators.forEach((s, i) => {
+                if (i + 1 < step) s.classList.add('completed');
+                if (i + 1 === step) s.classList.add('active');
+            });
+
+            currentStep = step;
+
+            if (step === 3) updateSummary();
+        }
+
+        function validateStep(step) {
+            if (step === 1) {
+                const service = document.querySelector('input[name="service"]:checked');
+                if (!service) {
+                    alert('Please select a service');
+                    return false;
+                }
+                if (service.value === 'live-session') {
+                    const date = document.getElementById('preferredDate').value;
+                    if (!date) {
+                        alert('Please select a preferred date');
+                        return false;
+                    }
+                }
+            }
+            if (step === 2) {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const platform = document.getElementById('platform').value;
+                const details = document.getElementById('details').value;
+
+                if (!name || !email || !platform || !details) {
+                    alert('Please fill in all required fields');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function updateSummary() {
+            const service = document.querySelector('input[name="service"]:checked')?.value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const platform = document.getElementById('platform').value;
+            const details = document.getElementById('details').value;
+            const date = document.getElementById('preferredDate').value;
+            const time = document.querySelector('input[name="time_slot"]:checked')?.value;
+
+            // Get dynamic prices
+            const p = bookingPrices;
+            const serviceNames = {
+                'custom-video': `Custom Video ($${p.customVideos?.basePrice || 50}+)`,
+                'live-session': `Live Session ($${p.liveSessions?.basePrice || 100}+)`,
+                'rating': `Rating ($${p.ratings?.basePrice || 25}+)`,
+                'sexting': `Sexting ($${p.sexting?.basePrice || 30}/30min)`
+            };
+
+            let html = `
+                <div class="summary-item"><strong>Service:</strong> ${serviceNames[service] || service}</div>
+                <div class="summary-item"><strong>Name:</strong> ${name}</div>
+                <div class="summary-item"><strong>Email:</strong> ${email}</div>
+                <div class="summary-item"><strong>Platform:</strong> ${platform}</div>
+            `;
+
+            if (date) {
+                html += `<div class="summary-item"><strong>Preferred Date:</strong> ${date} ${time ? 'at ' + time : ''}</div>`;
+            }
+
+            html += `<div class="summary-item"><strong>Details:</strong><br>${details}</div>`;
+
+            document.getElementById('bookingSummary').innerHTML = html;
+        }
+
+        // Calendar Logic
+        let currentDate = new Date();
+        let selectedDate = null;
+
+        function renderCalendar() {
+            const month = currentDate.getMonth();
+            const year = currentDate.getFullYear();
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const today = new Date();
+
+            document.getElementById('calendarMonth').textContent =
+                currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+            let html = '';
+
+            // Empty cells for days before first of month
+            for (let i = 0; i < firstDay; i++) {
+                html += '<span class="calendar__day empty"></span>';
+            }
+
+            // Days of month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = new Date(year, month, day);
+                const isDisabled = date < today;
+                const isSelected = selectedDate &&
+                    date.toDateString() === selectedDate.toDateString();
+
+                html += `<span class="calendar__day ${isDisabled ? 'disabled' : ''} ${isSelected ? 'selected' : ''}"
+                         data-date="${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}">${day}</span>`;
+            }
+
+            document.getElementById('calendarDays').innerHTML = html;
+
+            // Add click handlers
+            document.querySelectorAll('.calendar__day:not(.disabled):not(.empty)').forEach(day => {
+                day.addEventListener('click', () => {
+                    document.querySelectorAll('.calendar__day').forEach(d => d.classList.remove('selected'));
+                    day.classList.add('selected');
+                    selectedDate = new Date(day.dataset.date);
+                    document.getElementById('preferredDate').value = day.dataset.date;
+                });
+            });
+        }
+
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        renderCalendar();
+
+        // Form Submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch('api/upload.php?action=submit-booking', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                // Show success regardless (no backend yet)
+                document.querySelector('.booking-container > *:not(#bookingSuccess)').style.display = 'none';
+                document.getElementById('bookingSuccess').style.display = 'block';
+
+            } catch (error) {
+                // Show success anyway for demo
+                document.querySelector('.booking-steps').style.display = 'none';
+                form.style.display = 'none';
+                document.getElementById('bookingSuccess').style.display = 'block';
+            }
+        });
+    </script>
+
+    <style>
+        .page-header {
+            padding: calc(100px + var(--space-2xl)) 0 var(--space-2xl);
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+        .page-header__title { margin-bottom: var(--space-sm); }
+        .page-header__subtitle { color: var(--text-secondary); font-size: 1.125rem; }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(198, 142, 63, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(198, 142, 63, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .pricing-card--featured {
+            border-color: var(--whiskey);
+            background: linear-gradient(135deg, rgba(198, 142, 63, 0.1), transparent);
+            transform: scale(1.05);
+        }
+        .pricing-card--featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+        .pricing-card__badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-whiskey);
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .pricing-card__header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid rgba(198, 142, 63, 0.1);
+        }
+        .pricing-card__header h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+        }
+        .pricing-card__price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 4px;
+        }
+        .pricing-card__price .currency {
+            font-size: 1.5rem;
+            color: var(--whiskey);
+        }
+        .pricing-card__price .amount {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--whiskey);
+        }
+        .pricing-card__price .period {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        .pricing-card__features {
+            margin-bottom: var(--space-xl);
+        }
+        .pricing-card__features li {
+            padding: var(--space-sm) 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        .pricing-card__features .check::before {
+            content: '✓';
+            color: var(--whiskey);
+            font-weight: bold;
+        }
+
+        /* Booking Steps */
+        .booking-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .booking-steps {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--space-2xl);
+        }
+        .booking-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 var(--space-xl);
+            position: relative;
+        }
+        .booking-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -20%;
+            top: 15px;
+            width: 40%;
+            height: 2px;
+            background: rgba(198, 142, 63, 0.2);
+        }
+        .booking-step.completed::after {
+            background: var(--whiskey);
+        }
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid rgba(198, 142, 63, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            transition: all 0.3s ease;
+        }
+        .booking-step.active .step-number,
+        .booking-step.completed .step-number {
+            background: var(--whiskey);
+            border-color: var(--whiskey);
+            color: #000;
+        }
+        .step-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+            background: var(--bg-card);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(198, 142, 63, 0.1);
+        }
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .form-step h3 {
+            margin-bottom: var(--space-lg);
+            font-size: 1.25rem;
+        }
+
+        /* Service Options */
+        .service-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        @media (max-width: 480px) {
+            .service-options { grid-template-columns: 1fr; }
+        }
+        .service-option {
+            cursor: pointer;
+        }
+        .service-option input {
+            display: none;
+        }
+        .service-option__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md);
+            background: var(--bg-secondary);
+            border: 2px solid rgba(198, 142, 63, 0.1);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+        }
+        .service-option input:checked + .service-option__content {
+            border-color: var(--whiskey);
+            background: rgba(198, 142, 63, 0.1);
+        }
+        .service-option__name {
+            font-weight: 600;
+        }
+        .service-option__price {
+            color: var(--whiskey);
+            font-family: var(--font-condensed);
+        }
+
+        /* Calendar */
+        .calendar-section {
+            margin-bottom: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(198, 142, 63, 0.1);
+        }
+        .calendar-section h4 {
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+        }
+        .calendar {
+            background: var(--bg-secondary);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+        }
+        .calendar__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+        }
+        .calendar__nav {
+            background: none;
+            border: none;
+            color: var(--whiskey);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: var(--space-xs);
+        }
+        .calendar__month {
+            font-weight: 600;
+        }
+        .calendar__weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            margin-bottom: var(--space-sm);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .calendar__days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+        .calendar__day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        .calendar__day:hover:not(.disabled):not(.empty) {
+            background: rgba(198, 142, 63, 0.2);
+        }
+        .calendar__day.selected {
+            background: var(--whiskey);
+            color: #000;
+            font-weight: 600;
+        }
+        .calendar__day.disabled {
+            color: var(--text-muted);
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .calendar__day.empty {
+            cursor: default;
+        }
+
+        /* Time Slots */
+        .time-slots h4 {
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+        }
+        .time-slots__grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+        .time-slot {
+            cursor: pointer;
+        }
+        .time-slot input {
+            display: none;
+        }
+        .time-slot span {
+            display: block;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--bg-secondary);
+            border: 1px solid rgba(198, 142, 63, 0.1);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        .time-slot input:checked + span {
+            background: var(--whiskey);
+            color: #000;
+            border-color: var(--whiskey);
+        }
+
+        /* Form Rows */
+        .form__row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+        @media (max-width: 480px) {
+            .form__row { grid-template-columns: 1fr; }
+        }
+
+        /* Booking Summary */
+        .booking-summary {
+            background: var(--bg-secondary);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-xl);
+        }
+        .summary-item {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(198, 142, 63, 0.1);
+        }
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        .summary-item strong {
+            color: var(--whiskey);
+        }
+
+        /* Success State */
+        .booking-success {
+            text-align: center;
+            padding: var(--space-3xl);
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+        }
+        .success-icon {
+            margin-bottom: var(--space-lg);
+        }
+        .booking-success h3 {
+            margin-bottom: var(--space-md);
+            color: var(--whiskey);
+        }
+        .booking-success p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+        .text-muted {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .form__checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-md);
+        }
+        .form__checkbox input {
+            margin-top: 4px;
+            accent-color: var(--whiskey);
+        }
+        .form__checkbox a {
+            color: var(--whiskey);
+        }
+
+        .btn--full { width: 100%; }
+    </style>
+</body>
+</html>

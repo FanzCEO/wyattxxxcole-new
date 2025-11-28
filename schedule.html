@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wyatt XXX Cole Schedule - See upcoming availability and tour dates. Country bred redneck performer.">
+    <meta name="keywords" content="Wyatt XXX Cole, schedule, availability, tour, booking, redneck, country">
+    <meta property="og:title" content="Schedule | Wyatt XXX Cole">
+    <meta property="og:description" content="Check availability and upcoming locations. Country bred. Fully loaded.">
+    <title>Schedule | Wyatt XXX Cole</title>
+    <link rel="stylesheet" href="css/styles.css?v=999">
+    <link rel="stylesheet" href="css/effects.css?v=999">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤠</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">WXXXC</a>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="world.html" class="nav__link">Wyatt World</a></li>
+                <li><a href="studios.html" class="nav__link">For Studios</a></li>
+                <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+                <li><a href="shop.html" class="nav__link">Shop</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="hero__background"></div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content animate-fade-in">
+            <p class="hero__subtitle" style="margin-bottom: 1rem;">On Tour</p>
+            <h1 class="hero__title">
+                <span class="gradient-text">SCHEDULE</span>
+            </h1>
+            <p class="hero__tagline">Where I'll be and when I'm available.</p>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-header__eyebrow">Availability</p>
+                <h2 class="section-header__title">Calendar</h2>
+            </div>
+
+            <!-- Calendar Component -->
+            <div class="calendar" style="max-width: 900px; margin: 0 auto;">
+                <div class="calendar__header">
+                    <button class="calendar__nav-btn" id="prevMonth">&lt;</button>
+                    <h3 class="calendar__title" id="calendarTitle">January 2025</h3>
+                    <button class="calendar__nav-btn" id="nextMonth">&gt;</button>
+                </div>
+                <div class="calendar__grid">
+                    <div class="calendar__day-header">Sun</div>
+                    <div class="calendar__day-header">Mon</div>
+                    <div class="calendar__day-header">Tue</div>
+                    <div class="calendar__day-header">Wed</div>
+                    <div class="calendar__day-header">Thu</div>
+                    <div class="calendar__day-header">Fri</div>
+                    <div class="calendar__day-header">Sat</div>
+                    <!-- Calendar days will be populated by JavaScript -->
+                </div>
+                <div id="calendarDays" class="calendar__grid">
+                    <!-- Sample static calendar for display -->
+                    <div class="calendar__day" style="opacity: 0.3;">29</div>
+                    <div class="calendar__day" style="opacity: 0.3;">30</div>
+                    <div class="calendar__day" style="opacity: 0.3;">31</div>
+                    <div class="calendar__day calendar__day--available">1</div>
+                    <div class="calendar__day calendar__day--available">2</div>
+                    <div class="calendar__day calendar__day--available">3</div>
+                    <div class="calendar__day">4</div>
+                    <div class="calendar__day">5</div>
+                    <div class="calendar__day calendar__day--available">6</div>
+                    <div class="calendar__day calendar__day--available">7</div>
+                    <div class="calendar__day calendar__day--available">8</div>
+                    <div class="calendar__day calendar__day--available">9</div>
+                    <div class="calendar__day calendar__day--booked">10</div>
+                    <div class="calendar__day">11</div>
+                    <div class="calendar__day">12</div>
+                    <div class="calendar__day calendar__day--available">13</div>
+                    <div class="calendar__day calendar__day--available">14</div>
+                    <div class="calendar__day calendar__day--today">15</div>
+                    <div class="calendar__day calendar__day--available">16</div>
+                    <div class="calendar__day calendar__day--available">17</div>
+                    <div class="calendar__day">18</div>
+                    <div class="calendar__day">19</div>
+                    <div class="calendar__day calendar__day--available">20</div>
+                    <div class="calendar__day calendar__day--available">21</div>
+                    <div class="calendar__day calendar__day--available">22</div>
+                    <div class="calendar__day calendar__day--booked">23</div>
+                    <div class="calendar__day calendar__day--booked">24</div>
+                    <div class="calendar__day">25</div>
+                    <div class="calendar__day">26</div>
+                    <div class="calendar__day calendar__day--available">27</div>
+                    <div class="calendar__day calendar__day--available">28</div>
+                    <div class="calendar__day calendar__day--available">29</div>
+                    <div class="calendar__day calendar__day--available">30</div>
+                    <div class="calendar__day calendar__day--available">31</div>
+                    <div class="calendar__day" style="opacity: 0.3;">1</div>
+                </div>
+            </div>
+
+            <!-- Calendar Legend -->
+            <div class="flex-center gap-md mt-md" style="flex-wrap: wrap;">
+                <div class="flex gap-sm" style="align-items: center;">
+                    <div style="width: 16px; height: 16px; background: rgba(218, 165, 77, 0.1); border: 1px solid rgba(218, 165, 77, 0.3); border-radius: 2px;"></div>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Available</span>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                    <div style="width: 16px; height: 16px; background: rgba(92, 64, 51, 0.1); border-radius: 2px;"></div>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Booked</span>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                    <div style="width: 16px; height: 16px; border: 1px solid var(--rust); border-radius: 2px;"></div>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Today</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Cities -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-header__eyebrow">On The Move</p>
+                <h2 class="section-header__title">Upcoming Cities</h2>
+                <p class="section-header__subtitle">Where I'm headed next</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <!-- City 1 -->
+                <div class="card mb-md" style="display: flex; align-items: center; gap: var(--spacing-md); flex-wrap: wrap;">
+                    <div style="flex: 0 0 80px; text-align: center;">
+                        <p style="font-family: var(--font-heading); font-size: 2rem; color: var(--whiskey);">LA</p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">Los Angeles, CA</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">Home Base - Always Available</p>
+                    </div>
+                    <div>
+                        <span class="tag tag--green">HOME</span>
+                    </div>
+                </div>
+
+                <!-- City 2 -->
+                <div class="card mb-md" style="display: flex; align-items: center; gap: var(--spacing-md); flex-wrap: wrap;">
+                    <div style="flex: 0 0 80px; text-align: center;">
+                        <p style="font-family: var(--font-heading); font-size: 2rem; color: var(--rust);">LV</p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">Las Vegas, NV</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">Feb 15-20, 2025</p>
+                    </div>
+                    <div class="flex gap-sm" style="flex-wrap: wrap;">
+                        <span class="tag">Studio Shoots</span>
+                        <span class="tag tag--cyan">Creator Collabs</span>
+                    </div>
+                </div>
+
+                <!-- City 3 -->
+                <div class="card mb-md" style="display: flex; align-items: center; gap: var(--spacing-md); flex-wrap: wrap;">
+                    <div style="flex: 0 0 80px; text-align: center;">
+                        <p style="font-family: var(--font-heading); font-size: 2rem; color: var(--whiskey-light);">MIA</p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">Miami, FL</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">Mar 5-12, 2025</p>
+                    </div>
+                    <div class="flex gap-sm" style="flex-wrap: wrap;">
+                        <span class="tag tag--green">Fan Meets</span>
+                        <span class="tag">Studio Shoots</span>
+                    </div>
+                </div>
+
+                <!-- City 4 -->
+                <div class="card mb-md" style="display: flex; align-items: center; gap: var(--spacing-md); flex-wrap: wrap;">
+                    <div style="flex: 0 0 80px; text-align: center;">
+                        <p style="font-family: var(--font-heading); font-size: 2rem; color: var(--whiskey);">NYC</p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">New York City, NY</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">Apr 2025 - Dates TBD</p>
+                    </div>
+                    <div class="flex gap-sm" style="flex-wrap: wrap;">
+                        <span class="tag tag--cyan">Creator Collabs</span>
+                    </div>
+                </div>
+
+                <!-- City 5 -->
+                <div class="card" style="display: flex; align-items: center; gap: var(--spacing-md); flex-wrap: wrap;">
+                    <div style="flex: 0 0 80px; text-align: center;">
+                        <p style="font-family: var(--font-heading); font-size: 2rem; color: var(--chrome);">CHI</p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">Chicago, IL</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">May 2025 - Dates TBD</p>
+                    </div>
+                    <div class="flex gap-sm" style="flex-wrap: wrap;">
+                        <span class="tag">TBD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notify Me Section -->
+    <section class="section">
+        <div class="container">
+            <div class="card" style="max-width: 600px; margin: 0 auto; padding: var(--spacing-lg); text-align: center;">
+                <h2 class="mb-sm" style="font-size: 1.5rem;">Get Notified</h2>
+                <p class="mb-md" style="color: var(--text-secondary);">
+                    Want to know when I'm coming to your city? Sign up for location alerts.
+                </p>
+                <form class="form" id="notifyForm">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <input type="email" class="form__input" placeholder="Your email" required>
+                        </div>
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Your city">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn--primary" style="width: 100%;">Notify Me</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking CTA -->
+    <section class="section section--alt">
+        <div class="container text-center">
+            <h2 class="mb-sm">Ready to Book?</h2>
+            <p class="mb-md" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                If my schedule works for your project, let's make it happen.
+            </p>
+            <div class="flex-center gap-md" style="flex-wrap: wrap;">
+                <a href="studios.html" class="btn btn--primary">Studio Booking</a>
+                <a href="contact.html" class="btn btn--secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <div class="footer__logo">WXXXC</div>
+                    <p class="footer__tagline">Country boy. Dirty mind. No apologies.<br>Gay. Masc. Redneck.</p>
+                </div>
+                <div>
+                    <h4 class="footer__nav-title">Navigation</h4>
+                    <ul class="footer__nav-links">
+                        <li><a href="index.html" class="footer__nav-link">Home</a></li>
+                        <li><a href="studios.html" class="footer__nav-link">For Studios</a></li>
+                        <li><a href="portfolio.html" class="footer__nav-link">Portfolio</a></li>
+                        <li><a href="schedule.html" class="footer__nav-link">Schedule</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__nav-title">Connect</h4>
+                    <ul class="footer__nav-links">
+                        <li><a href="community.html" class="footer__nav-link">Community</a></li>
+                        <li><a href="shop.html" class="footer__nav-link">Shop</a></li>
+                        <li><a href="contact.html" class="footer__nav-link">Contact</a></li>
+                        <li><a href="links.html" class="footer__nav-link">Link Hub</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__nav-title">Follow</h4>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="Twitter/X">X</a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="footer__social-link" aria-label="TikTok">TT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Wyatt XXX Cole. All rights reserved.</p>
+                <p>18+ Only | Adult Content</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js?v=999"></script>
+    <script src="js/main.js?v=999"></script>
+    <script src="js/effects.js?v=999"></script>
+</body>
+</html>

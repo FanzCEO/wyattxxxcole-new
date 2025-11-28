@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verify your WYATT XXX COLE World account">
+    <title>Verify Email | WYATT XXX COLE</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/effects.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="index.html" class="nav__logo">
+                <img src="images/logo.png" alt="WYATT XXX COLE" class="nav__logo-img">
+            </a>
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+                <li><a href="booking.html" class="nav__link">Book Me</a></li>
+                <li><a href="subscribe.html" class="nav__link">Subscribe</a></li>
+                <li><a href="world.html" class="nav__link">World</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Verification Portal -->
+    <section class="verify-portal">
+        <div class="verify-portal__background"></div>
+        <div class="verify-portal__content">
+            <div class="verify-portal__logo">
+                <img src="images/logo.png" alt="WXXXC">
+            </div>
+            <h1 class="verify-portal__title">Verify Your <span class="gradient-text">Email</span></h1>
+
+            <!-- Verification Form -->
+            <div id="verifyFormContainer" class="verify-form-container">
+                <p class="verify-portal__tagline">Enter the 6-digit code sent to your email</p>
+                <form id="verifyForm" class="verify-form">
+                    <div class="form__group">
+                        <label class="form__label" for="verify-email">Email</label>
+                        <input type="email" id="verify-email" class="form__input" required>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="verify-code">Verification Code</label>
+                        <input type="text" id="verify-code" class="form__input code-input" placeholder="ABC123" maxlength="6" required>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full">Verify Email</button>
+                    <button type="button" class="btn btn--secondary btn--full" id="resendBtn" style="margin-top: 1rem;">Resend Code</button>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successContainer" class="success-container" style="display: none;">
+                <div class="success-icon">&#10003;</div>
+                <h2>Email Verified!</h2>
+                <p>Your account is now active. You can sign in to access World.</p>
+                <a href="world.html" class="btn btn--primary">Sign In</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js?v=2"></script>
+    <script src="js/effects.js?v=2"></script>
+    <script>
+        // Check URL params
+        const urlParams = new URLSearchParams(window.location.search);
+        const emailParam = urlParams.get('email');
+        const codeParam = urlParams.get('code');
+
+        if (emailParam) {
+            document.getElementById('verify-email').value = emailParam;
+        }
+        if (codeParam) {
+            document.getElementById('verify-code').value = codeParam;
+            // Auto-submit if both are present
+            if (emailParam) {
+                setTimeout(() => {
+                    document.getElementById('verifyForm').dispatchEvent(new Event('submit'));
+                }, 500);
+            }
+        }
+
+        // Verify form
+        document.getElementById('verifyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('verify-email').value;
+            const code = document.getElementById('verify-code').value;
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Verifying...';
+
+            try {
+                const res = await fetch('api/world.php?action=verify-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, code })
+                });
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    document.getElementById('verifyFormContainer').style.display = 'none';
+                    document.getElementById('successContainer').style.display = 'block';
+                } else {
+                    showNotification(data.error || 'Verification failed', 'error');
+                    btn.disabled = false;
+                    btn.textContent = 'Verify Email';
+                }
+            } catch (err) {
+                showNotification('Connection error. Try again.', 'error');
+                btn.disabled = false;
+                btn.textContent = 'Verify Email';
+            }
+        });
+
+        // Resend code
+        document.getElementById('resendBtn').addEventListener('click', async () => {
+            const email = document.getElementById('verify-email').value;
+            if (!email) {
+                showNotification('Please enter your email first', 'error');
+                return;
+            }
+
+            const btn = document.getElementById('resendBtn');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            try {
+                const res = await fetch('api/world.php?action=resend', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    showNotification('Verification code sent! Check your email.', 'success');
+                } else {
+                    showNotification(data.error || 'Failed to resend', 'error');
+                }
+            } catch (err) {
+                showNotification('Connection error', 'error');
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Resend Code';
+        });
+    </script>
+
+    <style>
+        .verify-portal {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verify-portal__background {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at center, rgba(198, 142, 63, 0.15) 0%, transparent 60%),
+                var(--bg-primary);
+            z-index: -1;
+        }
+
+        .verify-portal__content {
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .verify-portal__logo {
+            margin-bottom: var(--space-lg);
+        }
+        .verify-portal__logo img {
+            max-width: 150px;
+            margin: 0 auto;
+        }
+
+        .verify-portal__title {
+            font-size: 2rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .verify-portal__tagline {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+
+        .verify-form {
+            background: var(--bg-card);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+            text-align: left;
+        }
+
+        .code-input {
+            font-size: 1.5rem !important;
+            text-align: center;
+            letter-spacing: 0.5rem;
+            text-transform: uppercase;
+            font-family: monospace;
+        }
+
+        .success-container {
+            background: var(--bg-card);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(198, 142, 63, 0.3);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--whiskey), var(--rust));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--bg-primary);
+            margin: 0 auto var(--space-lg);
+        }
+
+        .success-container h2 {
+            color: var(--whiskey);
+            margin-bottom: var(--space-md);
+        }
+
+        .success-container p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+
+        .btn--secondary {
+            background: transparent;
+            border: 1px solid var(--whiskey);
+            color: var(--whiskey);
+        }
+        .btn--secondary:hover {
+            background: rgba(198, 142, 63, 0.1);
+        }
+    </style>
+</body>
+</html>

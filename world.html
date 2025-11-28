@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WYATT XXX COLE World - Exclusive subscriber portal">
+    <title>World | WYATT XXX COLE</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="stylesheet" href="css/effects.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="index.html" class="nav__logo">WYATT <span>XXX</span> COLE</a>
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+                <li><a href="booking.html" class="nav__link">Book Me</a></li>
+                <li><a href="merch.html" class="nav__link">Merch</a></li>
+                <li><a href="world.html" class="nav__link nav__link--active">World</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- World Portal -->
+    <section class="world-portal">
+        <div class="world-portal__background"></div>
+        <div class="world-portal__content">
+            <div class="world-portal__logo">
+                <img src="images/logo.png" alt="WXXXC">
+            </div>
+            <h1 class="world-portal__title">WXXXC <span class="gradient-text">WORLD</span></h1>
+            <p class="world-portal__tagline">The exclusive subscriber experience</p>
+
+            <!-- Login/Register Toggle -->
+            <div class="world-tabs">
+                <button class="world-tab active" data-tab="login">Sign In</button>
+                <button class="world-tab" data-tab="register">Create Account</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="world-form active">
+                <div class="form__group">
+                    <label class="form__label" for="login-email">Email</label>
+                    <input type="email" id="login-email" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form__input" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Sign In</button>
+                <a href="#" class="forgot-link">Forgot password?</a>
+                <div class="demo-link">
+                    <span>or</span>
+                    <a href="world-full.html">Preview as Guest</a>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="world-form">
+                <div class="form__group">
+                    <label class="form__label" for="reg-username">Username</label>
+                    <input type="text" id="reg-username" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="reg-email">Email</label>
+                    <input type="email" id="reg-email" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="reg-password">Password</label>
+                    <input type="password" id="reg-password" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__checkbox">
+                        <input type="checkbox" required>
+                        <span>I am 18+ and agree to the <a href="terms.html">Terms</a></span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Create Account</button>
+            </form>
+
+            <!-- Benefits -->
+            <div class="world-benefits">
+                <h3>Subscriber Benefits</h3>
+                <ul>
+                    <li>Exclusive uncensored content</li>
+                    <li>Behind-the-scenes access</li>
+                    <li>Direct messaging</li>
+                    <li>Early access to new releases</li>
+                    <li>Subscriber-only discounts</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js?v=2"></script>
+    <script src="js/effects.js?v=2"></script>
+    <script>
+        // Tab switching
+        document.querySelectorAll('.world-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.world-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                document.querySelectorAll('.world-form').forEach(f => f.classList.remove('active'));
+                document.getElementById(`${tab.dataset.tab}Form`).classList.add('active');
+            });
+        });
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Signing in...';
+
+            try {
+                const res = await fetch('api/world.php?action=login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await res.json();
+
+                if (res.ok && data.token) {
+                    localStorage.setItem('worldToken', data.token);
+                    localStorage.setItem('worldUser', JSON.stringify(data.user));
+                    window.location.href = 'world-full.html';
+                } else {
+                    showNotification(data.error || 'Login failed', 'error');
+                    btn.disabled = false;
+                    btn.textContent = 'Sign In';
+                }
+            } catch (err) {
+                showNotification('Connection error. Try again.', 'error');
+                btn.disabled = false;
+                btn.textContent = 'Sign In';
+            }
+        });
+
+        // Register
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('reg-username').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Creating account...';
+
+            try {
+                const res = await fetch('api/world.php?action=register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, email, password })
+                });
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    if (data.requiresVerification) {
+                        // Redirect to verification page
+                        showNotification('Check your email for verification code!', 'success');
+                        setTimeout(() => {
+                            window.location.href = 'verify.html?email=' + encodeURIComponent(email);
+                        }, 1500);
+                    } else {
+                        showNotification('Account created! Please sign in.', 'success');
+                        document.querySelector('[data-tab="login"]').click();
+                        document.getElementById('login-email').value = email;
+                    }
+                } else {
+                    showNotification(data.error || 'Registration failed', 'error');
+                    btn.disabled = false;
+                    btn.textContent = 'Create Account';
+                }
+            } catch (err) {
+                showNotification('Connection error. Try again.', 'error');
+                btn.disabled = false;
+                btn.textContent = 'Create Account';
+            }
+        });
+    </script>
+
+    <style>
+        .world-portal {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .world-portal__background {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at center, rgba(198, 142, 63, 0.15) 0%, transparent 60%),
+                var(--bg-primary);
+            z-index: -1;
+        }
+
+        .world-portal__content {
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .world-portal__logo {
+            margin-bottom: var(--space-lg);
+        }
+        .world-portal__logo img {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .world-portal__title {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .world-portal__tagline {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .world-tabs {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xs);
+            margin-bottom: var(--space-xl);
+        }
+
+        .world-tab {
+            flex: 1;
+            padding: var(--space-sm) var(--space-md);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            font-family: var(--font-condensed);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .world-tab.active {
+            background: var(--whiskey);
+            color: var(--bg-primary);
+        }
+
+        .world-form {
+            display: none;
+            background: var(--bg-card);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+            text-align: left;
+        }
+
+        .world-form.active {
+            display: block;
+        }
+
+        .btn--full {
+            width: 100%;
+        }
+
+        .forgot-link {
+            display: block;
+            text-align: center;
+            margin-top: var(--space-md);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .demo-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(198, 142, 63, 0.1);
+        }
+        .demo-link span {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        .demo-link a {
+            color: var(--whiskey);
+            font-weight: 600;
+        }
+
+        .form__checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        .form__checkbox input {
+            margin-top: 3px;
+            accent-color: var(--whiskey);
+        }
+        .form__checkbox a {
+            color: var(--whiskey);
+        }
+
+        .world-benefits {
+            margin-top: var(--space-2xl);
+            padding: var(--space-xl);
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(198, 142, 63, 0.1);
+            text-align: left;
+        }
+
+        .world-benefits h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+
+        .world-benefits ul {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .world-benefits li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--text-secondary);
+        }
+
+        .world-benefits li::before {
+            content: '★';
+            color: var(--whiskey);
+        }
+    </style>
+</body>
+</html>

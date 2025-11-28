@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>EPK - Wyatt XXX Cole | Print Version</title>
+    <link rel="stylesheet" href="css/styles.css?v=999">
+    <link rel="stylesheet" href="css/effects.css?v=999">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤠</text></svg>">
+    <style>
+        /* Print-optimized styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: white !important;
+                color: #1a1a1a !important;
+                font-size: 11pt;
+            }
+
+            .nav, .no-print, .btn {
+                display: none !important;
+            }
+
+            .epk-page {
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .epk-section {
+                page-break-inside: avoid;
+                margin-bottom: 20pt;
+                border: 1px solid #ddd !important;
+                background: #fafafa !important;
+            }
+
+            .epk-header {
+                background: linear-gradient(135deg, #C68E3F, #A44A2A) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+            }
+
+            h1, h2, h3 {
+                color: #1a1a1a !important;
+            }
+
+            .neon-text, .gradient-text {
+                color: #C68E3F !important;
+                text-shadow: none !important;
+                -webkit-text-fill-color: #C68E3F !important;
+            }
+
+            .tag {
+                border: 1px solid #C68E3F !important;
+                background: transparent !important;
+            }
+        }
+
+        /* Screen styles for EPK */
+        .epk-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: calc(80px + 2rem) 2rem 2rem;
+        }
+
+        .epk-cover {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(198, 142, 63, 0.3);
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+
+        .epk-logo {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--gradient-purple-cyan);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .epk-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .epk-section h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(198, 142, 63, 0.2);
+        }
+
+        .epk-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .epk-stat {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+        }
+
+        .epk-stat-label {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .epk-stat-value {
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            color: var(--rust);
+        }
+
+        .epk-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .epk-photo {
+            aspect-ratio: 3/4;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+
+        @media (max-width: 600px) {
+            .epk-stats-grid,
+            .epk-photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav no-print" id="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">WXXXC</a>
+            <div class="flex gap-sm">
+                <a href="studios.html" class="btn btn--sm btn--outline">Full EPK Page</a>
+                <button onclick="window.print()" class="btn btn--sm btn--primary">Print / Save PDF</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="epk-page">
+        <!-- Cover Page -->
+        <section class="epk-cover">
+            <div class="epk-logo">WXXXC</div>
+            <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">WYATT XXX COLE</h1>
+            <p style="font-family: var(--font-heading); font-size: 0.875rem; letter-spacing: 0.2em; color: var(--text-muted); margin-bottom: 1.5rem;">ELECTRONIC PRESS KIT</p>
+            <p style="color: var(--text-secondary);">Country boy. Dirty mind. No apologies.<br>Gay. Masc. Redneck.</p>
+        </section>
+
+        <!-- Bio Section -->
+        <section class="epk-section">
+            <h2>About</h2>
+            <p style="line-height: 1.8; margin-bottom: 1rem;">
+                <strong class="neon-text">Wyatt XXX Cole</strong> — Alabama-bred, gay, masc, and built like
+                the country boys your mama warned you about. I'm the real deal: rough hands, dirty mouth,
+                and the kind of intensity that leaves marks. Professional when the camera's rolling,
+                feral when it ain't.
+            </p>
+            <p style="line-height: 1.8; color: var(--text-secondary);">
+                Grew up in the sticks learning to work hard and play harder. Now I bring that same redneck grit
+                to every shoot — reliable, punctual, and ready to get nasty on command. Studios book me
+                'cause I show up, throw down, and deliver the goods.
+            </p>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="epk-section">
+            <h2>Stats & Specs</h2>
+            <div class="epk-stats-grid">
+                <div class="epk-stat">
+                    <p class="epk-stat-label">Height</p>
+                    <p class="epk-stat-value">[X'X"]</p>
+                </div>
+                <div class="epk-stat">
+                    <p class="epk-stat-label">Weight</p>
+                    <p class="epk-stat-value">[X lbs]</p>
+                </div>
+                <div class="epk-stat">
+                    <p class="epk-stat-label">Build</p>
+                    <p class="epk-stat-value">[Athletic]</p>
+                </div>
+                <div class="epk-stat">
+                    <p class="epk-stat-label">Hair</p>
+                    <p class="epk-stat-value">[Color]</p>
+                </div>
+                <div class="epk-stat">
+                    <p class="epk-stat-label">Eyes</p>
+                    <p class="epk-stat-value">[Color]</p>
+                </div>
+                <div class="epk-stat">
+                    <p class="epk-stat-label">Ethnicity</p>
+                    <p class="epk-stat-value">[Identity]</p>
+                </div>
+                <div class="epk-stat">
+                    <p class="epk-stat-label">Location</p>
+                    <p class="epk-stat-value">Los Angeles</p>
+                </div>
+                <div class="epk-stat">
+                    <p class="epk-stat-label">Travel</p>
+                    <p class="epk-stat-value">Passport Ready</p>
+                </div>
+                <div class="epk-stat">
+                    <p class="epk-stat-label">Status</p>
+                    <p class="epk-stat-value" style="color: var(--whiskey-light);">Available</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Categories -->
+        <section class="epk-section">
+            <h2>Performance Categories</h2>
+            <div class="flex gap-sm" style="flex-wrap: wrap;">
+                <span class="tag">Solo</span>
+                <span class="tag">M/F</span>
+                <span class="tag">M/M/F</span>
+                <span class="tag">Group</span>
+                <span class="tag tag--cyan">Kink-Friendly</span>
+                <span class="tag tag--cyan">Fetish-Friendly</span>
+                <span class="tag tag--green">Roleplay / Narrative</span>
+                <span class="tag tag--green">Creator Collabs</span>
+                <span class="tag">Studio Productions</span>
+                <span class="tag">Live Shows</span>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">
+                Detailed performance limits available upon professional inquiry.
+            </p>
+        </section>
+
+        <!-- Selected Photos -->
+        <section class="epk-section">
+            <h2>Selected Images</h2>
+            <div class="epk-photo-grid">
+                <div class="epk-photo">Headshot 1</div>
+                <div class="epk-photo">Body Shot</div>
+                <div class="epk-photo">Headshot 2</div>
+                <div class="epk-photo">Character Look</div>
+                <div class="epk-photo">Neon Aesthetic</div>
+                <div class="epk-photo">Profile</div>
+            </div>
+        </section>
+
+        <!-- Brand Mood -->
+        <section class="epk-section">
+            <h2>Brand Aesthetic</h2>
+            <div class="grid grid-2 gap-md">
+                <div>
+                    <h3 style="font-size: 0.875rem; margin-bottom: 0.5rem; color: var(--whiskey);">Visual Identity</h3>
+                    <ul style="list-style: none; line-height: 2; font-size: 0.875rem; color: var(--text-secondary);">
+                        <li>• Cyberpunk / Neon-noir aesthetic</li>
+                        <li>• High-contrast lighting</li>
+                        <li>• Dark backgrounds with neon accents</li>
+                        <li>• Leather, chains, industrial textures</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="font-size: 0.875rem; margin-bottom: 0.5rem; color: var(--rust);">Brand Pillars</h3>
+                    <ul style="list-style: none; line-height: 2; font-size: 0.875rem; color: var(--text-secondary);">
+                        <li>• <strong>Professional</strong> – Reliable on set</li>
+                        <li>• <strong>Rebel</strong> – Distinctive look</li>
+                        <li>• <strong>Futuristic</strong> – Tech-savvy</li>
+                        <li>• <strong>Magnetic</strong> – Audience builder</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="epk-section">
+            <h2>Contact & Booking</h2>
+            <div class="grid grid-2 gap-md">
+                <div>
+                    <p class="epk-stat-label">Professional Email</p>
+                    <p style="font-size: 1rem; margin-bottom: 1rem;">booking@wyattxxxcole.xxx</p>
+
+                    <p class="epk-stat-label">Management</p>
+                    <p style="font-size: 1rem; margin-bottom: 1rem;">Self-Represented</p>
+
+                    <p class="epk-stat-label">Response Time</p>
+                    <p style="font-size: 1rem;">24-48 Hours</p>
+                </div>
+                <div>
+                    <p class="epk-stat-label">Website</p>
+                    <p style="font-size: 1rem; margin-bottom: 1rem;">wyattxxxcole.xxx</p>
+
+                    <p class="epk-stat-label">Social</p>
+                    <p style="font-size: 1rem; margin-bottom: 1rem;">@WyattXXXCole</p>
+
+                    <p class="epk-stat-label">Link Hub</p>
+                    <p style="font-size: 1rem;">wyattxxxcole.xxx/links</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.75rem;">
+            <p>&copy; 2025 Wyatt XXX Cole | WXXXC</p>
+            <p>18+ Only | Adult Content</p>
+        </footer>
+    </main>
+
+    <!-- Print Button (Fixed) -->
+    <button onclick="window.print()" class="btn btn--primary print-btn no-print">
+        Print / Save as PDF
+    </button>
+
+    <script src="js/api.js?v=999"></script>
+    <script src="js/main.js?v=999"></script>
+    <script src="js/effects.js?v=999"></script>
+</body>
+</html>

@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wyatt World - The exclusive social universe of Wyatt XXX Cole. Feed, chat, connect. Country bred community.">
+    <meta property="og:title" content="Wyatt World | Wyatt XXX Cole">
+    <meta property="og:description" content="Enter my world. Exclusive content, real-time chat, and a community like no other. Country bred. Fully loaded.">
+    <title>Wyatt World | Wyatt XXX Cole</title>
+    <link rel="stylesheet" href="css/styles.css?v=999">
+    <link rel="stylesheet" href="css/effects.css?v=999">
+    <link rel="stylesheet" href="css/world.css?v=999">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤠</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">WXXXC</a>
+            <div class="nav__menu" id="navMenu">
+                <a href="index.html" class="nav__link">Home</a>
+                <a href="world.html" class="nav__link nav__link--active">Wyatt World</a>
+                <a href="portfolio.html" class="nav__link">Portfolio</a>
+                <a href="shop.html" class="nav__link">Shop</a>
+                <a href="links.html" class="nav__link">Links</a>
+            </div>
+            <div class="nav__actions">
+                <button class="btn btn--sm btn--outline" id="loginBtn">Sign In</button>
+                <button class="btn btn--sm btn--primary" id="joinBtn">Join Free</button>
+            </div>
+            <button class="nav__toggle" id="navToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main World Layout -->
+    <main class="world">
+        <!-- Left Sidebar - Navigation -->
+        <aside class="world__sidebar world__sidebar--left">
+            <div class="world__logo">
+                <span class="gradient-text">WYATT</span>
+                <span class="world__logo-sub">WORLD</span>
+            </div>
+
+            <nav class="world__nav">
+                <a href="#feed" class="world__nav-item active" data-section="feed">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg>
+                    <span>Feed</span>
+                </a>
+                <a href="#explore" class="world__nav-item" data-section="explore">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <span>Explore</span>
+                </a>
+                <a href="#messages" class="world__nav-item" data-section="messages">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                    <span>Messages</span>
+                    <span class="world__badge" id="msgBadge">3</span>
+                </a>
+                <a href="#notifications" class="world__nav-item" data-section="notifications">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                    <span>Alerts</span>
+                    <span class="world__badge" id="notifBadge">12</span>
+                </a>
+                <a href="#live" class="world__nav-item world__nav-item--live" data-section="live">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                    <span>LIVE</span>
+                    <span class="world__live-dot"></span>
+                </a>
+                <a href="#podcast" class="world__nav-item" data-section="podcast">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+                    <span>Podcast</span>
+                </a>
+                <a href="#boyfanz" class="world__nav-item world__nav-item--premium" data-section="boyfanz">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+                    <span>BoyFanz</span>
+                    <span class="world__premium-tag">PRO</span>
+                </a>
+                <a href="#vault" class="world__nav-item world__nav-item--vip" data-section="vault">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                    <span>The Vault</span>
+                    <span class="world__vip-tag">VIP</span>
+                </a>
+                <a href="#profile" class="world__nav-item" data-section="profile">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+            <!-- Membership Status -->
+            <div class="world__membership" id="membershipCard">
+                <div class="world__membership-tier">
+                    <span class="world__tier-badge world__tier-badge--free">FREE</span>
+                    <span>Member</span>
+                </div>
+                <button class="btn btn--primary btn--sm world__upgrade-btn">Upgrade to VIP</button>
+            </div>
+
+            <!-- Quick Post -->
+            <button class="btn btn--primary world__post-btn" id="newPostBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                Post
+            </button>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="world__content">
+            <!-- Feed Section -->
+            <section class="world__section active" id="section-feed">
+                <!-- Wyatt's Status -->
+                <div class="world__status-bar">
+                    <div class="world__status-avatar">
+                        <img src="https://via.placeholder.com/50" alt="Wyatt">
+                        <span class="world__online-dot"></span>
+                    </div>
+                    <div class="world__status-info">
+                        <strong>Wyatt is Online</strong>
+                        <span class="world__status-text">Feeling horny af today... who's around? 🔥</span>
+                    </div>
+                    <button class="btn btn--sm btn--outline">Say Hey</button>
+                </div>
+
+                <!-- Post Composer -->
+                <div class="world__composer" id="postComposer">
+                    <div class="world__composer-avatar">
+                        <img src="https://via.placeholder.com/45" alt="You">
+                    </div>
+                    <div class="world__composer-input">
+                        <textarea placeholder="What's on your dirty mind?" id="postInput"></textarea>
+                        <div class="world__composer-actions">
+                            <div class="world__composer-tools">
+                                <button class="world__tool-btn" title="Photo/Video">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                </button>
+                                <button class="world__tool-btn" title="GIF">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 9H13v6h-1.5V9zM9 9H6c-.6 0-1 .5-1 1v4c0 .5.4 1 1 1h3c.6 0 1-.5 1-1v-2H8.5v1.5h-2v-3H10V10c0-.5-.4-1-1-1zm10 1.5V9h-4.5v6H16v-2h2v-1.5h-2v-1h3z"/></svg>
+                                </button>
+                                <button class="world__tool-btn" title="Poll">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                                </button>
+                                <button class="world__tool-btn world__tool-btn--vip" title="PPV Content">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                                    PPV
+                                </button>
+                            </div>
+                            <div class="world__composer-submit">
+                                <select class="world__visibility-select" id="postVisibility">
+                                    <option value="public">Everyone</option>
+                                    <option value="followers">Followers</option>
+                                    <option value="vip">VIP Only</option>
+                                    <option value="inner">Inner Circle</option>
+                                </select>
+                                <button class="btn btn--primary btn--sm" id="submitPost">Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feed Tabs -->
+                <div class="world__tabs">
+                    <button class="world__tab active" data-feed="for-you">For You</button>
+                    <button class="world__tab" data-feed="following">Following</button>
+                    <button class="world__tab" data-feed="wyatt">Wyatt Only</button>
+                    <button class="world__tab world__tab--hot" data-feed="spicy">🔥 Spicy</button>
+                </div>
+
+                <!-- Feed Posts -->
+                <div class="world__feed" id="feedContainer">
+                    <!-- Pinned Post -->
+                    <article class="world__post world__post--pinned">
+                        <div class="world__post-pin">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="14"><path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z"/></svg>
+                            Pinned
+                        </div>
+                        <div class="world__post-header">
+                            <div class="world__post-avatar">
+                                <img src="https://via.placeholder.com/48" alt="Wyatt XXX Cole">
+                                <span class="world__verified">✓</span>
+                            </div>
+                            <div class="world__post-meta">
+                                <div class="world__post-author">
+                                    <strong>Wyatt XXX Cole</strong>
+                                    <span class="world__handle">@WyattXXXCole</span>
+                                </div>
+                                <span class="world__post-time">Pinned post</span>
+                            </div>
+                            <button class="world__post-menu">⋯</button>
+                        </div>
+                        <div class="world__post-content">
+                            <p>Welcome to <strong>Wyatt World</strong> 🌎🔥</p>
+                            <p>This is YOUR space to connect with me directly. No algorithms, no bullshit. Just real talk, dirty pics, and a community of like-minded folks who appreciate a good country boy.</p>
+                            <p>Upgrade to VIP for exclusive content, DMs with me, and access to The Vault. Let's have some fun. 😈</p>
+                        </div>
+                        <div class="world__post-actions">
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                                <span>2.4k</span>
+                            </button>
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                                <span>347</span>
+                            </button>
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+                                <span>89</span>
+                            </button>
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                            </button>
+                            <button class="world__action-btn world__action-btn--tip">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+                                Tip
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Regular Post with Media -->
+                    <article class="world__post">
+                        <div class="world__post-header">
+                            <div class="world__post-avatar">
+                                <img src="https://via.placeholder.com/48" alt="Wyatt XXX Cole">
+                                <span class="world__verified">✓</span>
+                            </div>
+                            <div class="world__post-meta">
+                                <div class="world__post-author">
+                                    <strong>Wyatt XXX Cole</strong>
+                                    <span class="world__handle">@WyattXXXCole</span>
+                                </div>
+                                <span class="world__post-time">2h ago</span>
+                            </div>
+                            <button class="world__post-menu">⋯</button>
+                        </div>
+                        <div class="world__post-content">
+                            <p>Just finished a workout. Feeling pumped and sweaty as hell. Y'all want proof? 💪😏</p>
+                        </div>
+                        <div class="world__post-media">
+                            <div class="world__media-grid world__media-grid--1">
+                                <div class="world__media-item world__media-item--blurred">
+                                    <img src="https://via.placeholder.com/600x400" alt="Post media">
+                                    <div class="world__media-lock">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                        <span>VIP Only</span>
+                                        <button class="btn btn--primary btn--sm">Unlock</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="world__post-stats">
+                            <span>1,847 likes</span>
+                            <span>•</span>
+                            <span>234 comments</span>
+                        </div>
+                        <div class="world__post-actions">
+                            <button class="world__action-btn world__action-btn--liked">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                                <span>1.8k</span>
+                            </button>
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                                <span>234</span>
+                            </button>
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+                                <span>56</span>
+                            </button>
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                            </button>
+                            <button class="world__action-btn world__action-btn--tip">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+                                Tip
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Poll Post -->
+                    <article class="world__post">
+                        <div class="world__post-header">
+                            <div class="world__post-avatar">
+                                <img src="https://via.placeholder.com/48" alt="Wyatt XXX Cole">
+                                <span class="world__verified">✓</span>
+                            </div>
+                            <div class="world__post-meta">
+                                <div class="world__post-author">
+                                    <strong>Wyatt XXX Cole</strong>
+                                    <span class="world__handle">@WyattXXXCole</span>
+                                </div>
+                                <span class="world__post-time">5h ago</span>
+                            </div>
+                            <button class="world__post-menu">⋯</button>
+                        </div>
+                        <div class="world__post-content">
+                            <p>What content y'all wanna see more of? I'm takin' requests... 🤠</p>
+                        </div>
+                        <div class="world__poll">
+                            <button class="world__poll-option" data-votes="42">
+                                <span class="world__poll-text">Solo content - just me</span>
+                                <span class="world__poll-percent">42%</span>
+                                <div class="world__poll-bar" style="width: 42%"></div>
+                            </button>
+                            <button class="world__poll-option" data-votes="31">
+                                <span class="world__poll-text">Collab with other creators</span>
+                                <span class="world__poll-percent">31%</span>
+                                <div class="world__poll-bar" style="width: 31%"></div>
+                            </button>
+                            <button class="world__poll-option" data-votes="18">
+                                <span class="world__poll-text">Behind the scenes / day in life</span>
+                                <span class="world__poll-percent">18%</span>
+                                <div class="world__poll-bar" style="width: 18%"></div>
+                            </button>
+                            <button class="world__poll-option" data-votes="9">
+                                <span class="world__poll-text">Live streams</span>
+                                <span class="world__poll-percent">9%</span>
+                                <div class="world__poll-bar" style="width: 9%"></div>
+                            </button>
+                            <div class="world__poll-info">
+                                <span>1,247 votes</span>
+                                <span>•</span>
+                                <span>2 days left</span>
+                            </div>
+                        </div>
+                        <div class="world__post-actions">
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                                <span>892</span>
+                            </button>
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                                <span>156</span>
+                            </button>
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+                                <span>34</span>
+                            </button>
+                            <button class="world__action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Loading more -->
+                    <div class="world__loading">
+                        <div class="world__spinner"></div>
+                        <span>Loading more...</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section class="world__section" id="section-messages">
+                <div class="world__messages">
+                    <div class="world__messages-header">
+                        <h2>Messages</h2>
+                        <button class="btn btn--sm btn--outline" id="newChatBtn">New Chat</button>
+                    </div>
+
+                    <div class="world__messages-tabs">
+                        <button class="world__messages-tab active" data-tab="dms">DMs</button>
+                        <button class="world__messages-tab" data-tab="groups">Groups</button>
+                        <button class="world__messages-tab world__messages-tab--vip" data-tab="wyatt">
+                            <span class="world__verified">✓</span> Wyatt
+                            <span class="world__vip-tag">VIP</span>
+                        </button>
+                    </div>
+
+                    <div class="world__chat-list" id="chatList">
+                        <!-- Chat with Wyatt (VIP) -->
+                        <div class="world__chat-item world__chat-item--wyatt world__chat-item--locked">
+                            <div class="world__chat-avatar">
+                                <img src="https://via.placeholder.com/50" alt="Wyatt">
+                                <span class="world__online-dot"></span>
+                            </div>
+                            <div class="world__chat-info">
+                                <div class="world__chat-name">
+                                    <strong>Wyatt XXX Cole</strong>
+                                    <span class="world__verified">✓</span>
+                                </div>
+                                <p class="world__chat-preview">Upgrade to VIP to message Wyatt directly...</p>
+                            </div>
+                            <div class="world__chat-meta">
+                                <span class="world__vip-lock">🔒 VIP</span>
+                            </div>
+                        </div>
+
+                        <!-- Group Chat -->
+                        <div class="world__chat-item" data-chat="group-1">
+                            <div class="world__chat-avatar world__chat-avatar--group">
+                                <span>🔥</span>
+                            </div>
+                            <div class="world__chat-info">
+                                <div class="world__chat-name">
+                                    <strong>The Locker Room</strong>
+                                    <span class="world__group-count">847 members</span>
+                                </div>
+                                <p class="world__chat-preview">Jake: damn that new video tho... 🥵</p>
+                            </div>
+                            <div class="world__chat-meta">
+                                <span class="world__chat-time">2m</span>
+                                <span class="world__chat-unread">5</span>
+                            </div>
+                        </div>
+
+                        <!-- DM -->
+                        <div class="world__chat-item" data-chat="dm-1">
+                            <div class="world__chat-avatar">
+                                <img src="https://via.placeholder.com/50" alt="User">
+                            </div>
+                            <div class="world__chat-info">
+                                <div class="world__chat-name">
+                                    <strong>TallDarkHandsome</strong>
+                                </div>
+                                <p class="world__chat-preview">You: Thanks man! Appreciate the support 🙏</p>
+                            </div>
+                            <div class="world__chat-meta">
+                                <span class="world__chat-time">1h</span>
+                            </div>
+                        </div>
+
+                        <!-- More DMs -->
+                        <div class="world__chat-item world__chat-item--unread" data-chat="dm-2">
+                            <div class="world__chat-avatar">
+                                <img src="https://via.placeholder.com/50" alt="User">
+                            </div>
+                            <div class="world__chat-info">
+                                <div class="world__chat-name">
+                                    <strong>CountryFan92</strong>
+                                </div>
+                                <p class="world__chat-preview">Hey! Love your content, just subscribed...</p>
+                            </div>
+                            <div class="world__chat-meta">
+                                <span class="world__chat-time">3h</span>
+                                <span class="world__chat-unread">2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Section -->
+            <section class="world__section" id="section-live">
+                <div class="world__live-container">
+                    <div class="world__live-header">
+                        <h2>🔴 LIVE</h2>
+                        <p>Catch Wyatt when he goes live. Get notified instantly.</p>
+                    </div>
+
+                    <!-- Currently Live / Upcoming -->
+                    <div class="world__live-now">
+                        <div class="world__live-offline">
+                            <div class="world__live-offline-icon">📺</div>
+                            <h3>Not Live Right Now</h3>
+                            <p>Wyatt isn't streaming at the moment. Turn on notifications to know when he goes live!</p>
+                            <button class="btn btn--primary">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                                Notify Me
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Schedule -->
+                    <div class="world__live-schedule">
+                        <h3>Upcoming Streams</h3>
+                        <div class="world__schedule-list">
+                            <div class="world__schedule-item">
+                                <div class="world__schedule-date">
+                                    <span class="world__schedule-day">FRI</span>
+                                    <span class="world__schedule-num">29</span>
+                                </div>
+                                <div class="world__schedule-info">
+                                    <strong>Late Night Hangout</strong>
+                                    <span>10:00 PM CST • Free for all</span>
+                                </div>
+                                <button class="btn btn--sm btn--outline">Remind Me</button>
+                            </div>
+                            <div class="world__schedule-item world__schedule-item--vip">
+                                <div class="world__schedule-date">
+                                    <span class="world__schedule-day">SAT</span>
+                                    <span class="world__schedule-num">30</span>
+                                </div>
+                                <div class="world__schedule-info">
+                                    <strong>VIP Exclusive: Q&A + More 😈</strong>
+                                    <span>9:00 PM CST • VIP Only</span>
+                                </div>
+                                <span class="world__vip-tag">VIP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past Streams (VIP) -->
+                    <div class="world__live-archive">
+                        <h3>Past Streams <span class="world__vip-tag">VIP</span></h3>
+                        <div class="world__archive-grid">
+                            <div class="world__archive-item world__archive-item--locked">
+                                <div class="world__archive-thumb">
+                                    <img src="https://via.placeholder.com/300x200" alt="Stream">
+                                    <div class="world__archive-duration">1:42:30</div>
+                                    <div class="world__archive-lock">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="world__archive-info">
+                                    <strong>Shower Stream 💦</strong>
+                                    <span>Nov 20, 2025</span>
+                                </div>
+                            </div>
+                            <div class="world__archive-item world__archive-item--locked">
+                                <div class="world__archive-thumb">
+                                    <img src="https://via.placeholder.com/300x200" alt="Stream">
+                                    <div class="world__archive-duration">2:15:00</div>
+                                    <div class="world__archive-lock">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="world__archive-info">
+                                    <strong>Late Night Vibes</strong>
+                                    <span>Nov 15, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn--primary world__unlock-all">Unlock All Streams - Join VIP</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Podcast Section -->
+            <section class="world__section" id="section-podcast">
+                <div class="world__podcast">
+                    <div class="world__podcast-header">
+                        <h2>The Dirty South Podcast</h2>
+                        <p>Unfiltered conversations, wild stories, and real talk from your favorite country boy. New episodes every week.</p>
+                    </div>
+
+                    <!-- Featured Episode -->
+                    <div class="world__podcast-featured">
+                        <div class="world__podcast-player">
+                            <div class="world__podcast-cover">
+                                <div class="world__podcast-cover-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="64"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+                                </div>
+                                <div class="world__podcast-play-overlay">
+                                    <button class="world__podcast-play-btn">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="48"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="world__podcast-info">
+                                <span class="world__podcast-badge">Latest Episode</span>
+                                <h3>EP. 24: "Gym Bros & Late Night Stories"</h3>
+                                <p class="world__podcast-desc">This week I'm talkin' about my wildest gym encounters, answering your questions about my workout routine, and sharing some stories that might make you blush...</p>
+                                <div class="world__podcast-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg> 47:32</span>
+                                    <span><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg> Nov 25, 2025</span>
+                                    <span><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/><circle cx="12" cy="12" r="3"/></svg> 12.4K plays</span>
+                                </div>
+                                <div class="world__podcast-actions">
+                                    <button class="btn btn--primary">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M8 5v14l11-7z"/></svg>
+                                        Play Now
+                                    </button>
+                                    <button class="btn btn--outline">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Audio Player Bar -->
+                        <div class="world__podcast-controls">
+                            <div class="world__podcast-progress">
+                                <span class="world__podcast-time">0:00</span>
+                                <div class="world__podcast-progress-bar">
+                                    <div class="world__podcast-progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="world__podcast-time">47:32</span>
+                            </div>
+                            <div class="world__podcast-buttons">
+                                <button class="world__podcast-ctrl" title="Rewind 15s">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/></svg>
+                                </button>
+                                <button class="world__podcast-ctrl world__podcast-ctrl--main" title="Play">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <button class="world__podcast-ctrl" title="Forward 15s">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg>
+                                </button>
+                                <button class="world__podcast-ctrl" title="Volume">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                                </button>
+                                <button class="world__podcast-ctrl" title="Speed">1x</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Episode List -->
+                    <div class="world__podcast-episodes">
+                        <div class="world__podcast-episodes-header">
+                            <h3>All Episodes</h3>
+                            <div class="world__podcast-filter">
+                                <button class="world__podcast-filter-btn active">All</button>
+                                <button class="world__podcast-filter-btn">Free</button>
+                                <button class="world__podcast-filter-btn world__podcast-filter-btn--vip">VIP Only</button>
+                            </div>
+                        </div>
+
+                        <div class="world__episode-list">
+                            <!-- Episode Item -->
+                            <div class="world__episode">
+                                <div class="world__episode-num">24</div>
+                                <div class="world__episode-thumb">
+                                    <div class="world__episode-thumb-placeholder"></div>
+                                </div>
+                                <div class="world__episode-info">
+                                    <h4>Gym Bros & Late Night Stories</h4>
+                                    <p>Wild gym encounters and your Q&A questions answered...</p>
+                                    <div class="world__episode-meta">
+                                        <span>47:32</span>
+                                        <span>Nov 25</span>
+                                        <span class="world__episode-free">Free</span>
+                                    </div>
+                                </div>
+                                <button class="world__episode-play">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                            </div>
+
+                            <!-- VIP Episode -->
+                            <div class="world__episode world__episode--vip">
+                                <div class="world__episode-num">23</div>
+                                <div class="world__episode-thumb">
+                                    <div class="world__episode-thumb-placeholder"></div>
+                                    <span class="world__vip-tag">VIP</span>
+                                </div>
+                                <div class="world__episode-info">
+                                    <h4>Uncensored: My First Time On Camera</h4>
+                                    <p>The full uncut story of how I got started in the industry...</p>
+                                    <div class="world__episode-meta">
+                                        <span>1:02:15</span>
+                                        <span>Nov 18</span>
+                                        <span class="world__episode-vip">VIP Only</span>
+                                    </div>
+                                </div>
+                                <button class="world__episode-play world__episode-play--locked">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                </button>
+                            </div>
+
+                            <!-- More Episodes -->
+                            <div class="world__episode">
+                                <div class="world__episode-num">22</div>
+                                <div class="world__episode-thumb">
+                                    <div class="world__episode-thumb-placeholder"></div>
+                                </div>
+                                <div class="world__episode-info">
+                                    <h4>Tour Life: Behind The Scenes</h4>
+                                    <p>What really happens when I'm traveling for shoots...</p>
+                                    <div class="world__episode-meta">
+                                        <span>38:45</span>
+                                        <span>Nov 11</span>
+                                        <span class="world__episode-free">Free</span>
+                                    </div>
+                                </div>
+                                <button class="world__episode-play">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                            </div>
+
+                            <div class="world__episode world__episode--vip">
+                                <div class="world__episode-num">21</div>
+                                <div class="world__episode-thumb">
+                                    <div class="world__episode-thumb-placeholder"></div>
+                                    <span class="world__vip-tag">VIP</span>
+                                </div>
+                                <div class="world__episode-info">
+                                    <h4>Answering Your Spicy DMs</h4>
+                                    <p>Y'all asked, I'm answering... nothing off limits this time.</p>
+                                    <div class="world__episode-meta">
+                                        <span>55:20</span>
+                                        <span>Nov 4</span>
+                                        <span class="world__episode-vip">VIP Only</span>
+                                    </div>
+                                </div>
+                                <button class="world__episode-play world__episode-play--locked">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                </button>
+                            </div>
+
+                            <div class="world__episode">
+                                <div class="world__episode-num">20</div>
+                                <div class="world__episode-thumb">
+                                    <div class="world__episode-thumb-placeholder"></div>
+                                </div>
+                                <div class="world__episode-info">
+                                    <h4>Collab Stories with Guest: Jake</h4>
+                                    <p>Me and Jake talking about our favorite on-set moments...</p>
+                                    <div class="world__episode-meta">
+                                        <span>52:10</span>
+                                        <span>Oct 28</span>
+                                        <span class="world__episode-free">Free</span>
+                                    </div>
+                                </div>
+                                <button class="world__episode-play">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button class="btn btn--outline world__load-more">Load More Episodes</button>
+                    </div>
+
+                    <!-- Subscribe Platforms -->
+                    <div class="world__podcast-subscribe">
+                        <h3>Subscribe & Never Miss an Episode</h3>
+                        <div class="world__podcast-platforms">
+                            <a href="#" class="world__platform-btn world__platform-btn--spotify">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                                Spotify
+                            </a>
+                            <a href="#" class="world__platform-btn world__platform-btn--apple">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                                Apple Podcasts
+                            </a>
+                            <a href="#" class="world__platform-btn world__platform-btn--youtube">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                YouTube
+                            </a>
+                            <a href="#" class="world__platform-btn world__platform-btn--rss">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="24"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+                                RSS Feed
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BoyFanz Integration Section -->
+            <section class="world__section" id="section-boyfanz">
+                <div class="world__boyfanz">
+                    <div class="world__boyfanz-header">
+                        <div class="world__boyfanz-logo">
+                            <span class="world__boyfanz-icon">BF</span>
+                            <div>
+                                <h2>BoyFanz Premium</h2>
+                                <p>Connected to @WyattXXXCole</p>
+                            </div>
+                        </div>
+                        <div class="world__boyfanz-status">
+                            <span class="world__boyfanz-connected">Connected</span>
+                        </div>
+                    </div>
+
+                    <!-- Live Stream from BoyFanz -->
+                    <div class="world__boyfanz-live">
+                        <div class="world__boyfanz-live-header">
+                            <h3>Live Streams</h3>
+                            <span class="world__boyfanz-sync">Synced from BoyFanz</span>
+                        </div>
+
+                        <!-- Currently Live / Video Player -->
+                        <div class="world__boyfanz-player">
+                            <div class="world__boyfanz-video">
+                                <div class="world__boyfanz-video-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="64"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+                                    <p>No live stream right now</p>
+                                </div>
+                                <div class="world__boyfanz-live-badge hidden">
+                                    <span class="world__live-indicator"></span>
+                                    LIVE
+                                </div>
+                            </div>
+                            <div class="world__boyfanz-player-info">
+                                <div class="world__boyfanz-stream-info">
+                                    <h4>Next Scheduled Stream</h4>
+                                    <p class="world__boyfanz-stream-title">Friday Night Special</p>
+                                    <p class="world__boyfanz-stream-time">Friday, Nov 29 @ 10:00 PM CST</p>
+                                </div>
+                                <div class="world__boyfanz-stream-actions">
+                                    <button class="btn btn--primary">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                                        Set Reminder
+                                    </button>
+                                    <button class="btn btn--outline">Add to Calendar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stream Schedule -->
+                        <div class="world__boyfanz-schedule">
+                            <h4>Upcoming BoyFanz Streams</h4>
+                            <div class="world__boyfanz-schedule-list">
+                                <div class="world__boyfanz-schedule-item">
+                                    <div class="world__boyfanz-schedule-date">
+                                        <span class="world__boyfanz-day">FRI</span>
+                                        <span class="world__boyfanz-num">29</span>
+                                    </div>
+                                    <div class="world__boyfanz-schedule-info">
+                                        <strong>Friday Night Special</strong>
+                                        <span>10:00 PM CST</span>
+                                    </div>
+                                    <span class="world__boyfanz-tier world__boyfanz-tier--free">Free Preview</span>
+                                </div>
+                                <div class="world__boyfanz-schedule-item">
+                                    <div class="world__boyfanz-schedule-date">
+                                        <span class="world__boyfanz-day">SAT</span>
+                                        <span class="world__boyfanz-num">30</span>
+                                    </div>
+                                    <div class="world__boyfanz-schedule-info">
+                                        <strong>Uncensored After Dark</strong>
+                                        <span>11:00 PM CST</span>
+                                    </div>
+                                    <span class="world__boyfanz-tier world__boyfanz-tier--premium">Premium</span>
+                                </div>
+                                <div class="world__boyfanz-schedule-item">
+                                    <div class="world__boyfanz-schedule-date">
+                                        <span class="world__boyfanz-day">SUN</span>
+                                        <span class="world__boyfanz-num">1</span>
+                                    </div>
+                                    <div class="world__boyfanz-schedule-info">
+                                        <strong>Lazy Sunday Hangout</strong>
+                                        <span>3:00 PM CST</span>
+                                    </div>
+                                    <span class="world__boyfanz-tier world__boyfanz-tier--free">Free</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium Content from BoyFanz -->
+                    <div class="world__boyfanz-content">
+                        <div class="world__boyfanz-content-header">
+                            <h3>Premium Content</h3>
+                            <span class="world__boyfanz-sync">Auto-synced from BoyFanz</span>
+                        </div>
+
+                        <div class="world__boyfanz-grid">
+                            <!-- Premium Video -->
+                            <div class="world__boyfanz-item world__boyfanz-item--locked">
+                                <div class="world__boyfanz-thumb">
+                                    <div class="world__boyfanz-thumb-placeholder"></div>
+                                    <div class="world__boyfanz-duration">12:34</div>
+                                    <div class="world__boyfanz-lock-overlay">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="world__boyfanz-item-info">
+                                    <h5>Post-Workout Shower</h5>
+                                    <span class="world__boyfanz-item-meta">Nov 24 • Premium</span>
+                                </div>
+                            </div>
+
+                            <div class="world__boyfanz-item world__boyfanz-item--locked">
+                                <div class="world__boyfanz-thumb">
+                                    <div class="world__boyfanz-thumb-placeholder"></div>
+                                    <div class="world__boyfanz-duration">18:22</div>
+                                    <div class="world__boyfanz-lock-overlay">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="world__boyfanz-item-info">
+                                    <h5>Late Night Solo Session</h5>
+                                    <span class="world__boyfanz-item-meta">Nov 22 • Premium</span>
+                                </div>
+                            </div>
+
+                            <div class="world__boyfanz-item world__boyfanz-item--locked">
+                                <div class="world__boyfanz-thumb">
+                                    <div class="world__boyfanz-thumb-placeholder"></div>
+                                    <div class="world__boyfanz-duration">25:47</div>
+                                    <div class="world__boyfanz-lock-overlay">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="world__boyfanz-item-info">
+                                    <h5>Collab with @HotStud88</h5>
+                                    <span class="world__boyfanz-item-meta">Nov 19 • Premium</span>
+                                </div>
+                            </div>
+
+                            <div class="world__boyfanz-item world__boyfanz-item--locked">
+                                <div class="world__boyfanz-thumb">
+                                    <div class="world__boyfanz-thumb-placeholder"></div>
+                                    <div class="world__boyfanz-duration">08:15</div>
+                                    <div class="world__boyfanz-lock-overlay">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="world__boyfanz-item-info">
+                                    <h5>Morning Wood Teaser</h5>
+                                    <span class="world__boyfanz-item-meta">Nov 17 • Premium</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Unlock CTA -->
+                        <div class="world__boyfanz-unlock">
+                            <div class="world__boyfanz-unlock-info">
+                                <h4>Unlock All Premium Content</h4>
+                                <p>Get access to all my BoyFanz content directly here on Wyatt World. One subscription, everything unlocked.</p>
+                                <ul class="world__boyfanz-perks">
+                                    <li>All premium videos (200+)</li>
+                                    <li>Live stream access & replays</li>
+                                    <li>Exclusive photos & behind-the-scenes</li>
+                                    <li>Direct messaging with Wyatt</li>
+                                </ul>
+                            </div>
+                            <div class="world__boyfanz-unlock-action">
+                                <div class="world__boyfanz-price">
+                                    <span class="world__boyfanz-price-amount">$24.99</span>
+                                    <span class="world__boyfanz-price-period">/month</span>
+                                </div>
+                                <button class="btn btn--primary btn--lg">Subscribe Now</button>
+                                <p class="world__boyfanz-note">Cancel anytime. Instant access.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stream Archives from BoyFanz -->
+                    <div class="world__boyfanz-archives">
+                        <div class="world__boyfanz-archives-header">
+                            <h3>Stream Replays</h3>
+                            <span class="world__boyfanz-count">47 streams available</span>
+                        </div>
+
+                        <div class="world__boyfanz-archive-grid">
+                            <div class="world__boyfanz-archive world__boyfanz-archive--locked">
+                                <div class="world__boyfanz-archive-thumb">
+                                    <div class="world__boyfanz-thumb-placeholder"></div>
+                                    <div class="world__boyfanz-duration">1:42:30</div>
+                                    <div class="world__boyfanz-replay-badge">Replay</div>
+                                    <div class="world__boyfanz-lock-overlay">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="world__boyfanz-archive-info">
+                                    <strong>Saturday Night Uncut</strong>
+                                    <span>Nov 23, 2025 • 3.2K views</span>
+                                </div>
+                            </div>
+
+                            <div class="world__boyfanz-archive world__boyfanz-archive--locked">
+                                <div class="world__boyfanz-archive-thumb">
+                                    <div class="world__boyfanz-thumb-placeholder"></div>
+                                    <div class="world__boyfanz-duration">2:15:00</div>
+                                    <div class="world__boyfanz-replay-badge">Replay</div>
+                                    <div class="world__boyfanz-lock-overlay">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="world__boyfanz-archive-info">
+                                    <strong>Collab Stream with Jake</strong>
+                                    <span>Nov 20, 2025 • 5.1K views</span>
+                                </div>
+                            </div>
+
+                            <div class="world__boyfanz-archive world__boyfanz-archive--locked">
+                                <div class="world__boyfanz-archive-thumb">
+                                    <div class="world__boyfanz-thumb-placeholder"></div>
+                                    <div class="world__boyfanz-duration">1:28:45</div>
+                                    <div class="world__boyfanz-replay-badge">Replay</div>
+                                    <div class="world__boyfanz-lock-overlay">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="32"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="world__boyfanz-archive-info">
+                                    <strong>Q&A + Requests Night</strong>
+                                    <span>Nov 16, 2025 • 2.8K views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn--outline world__load-more">View All Replays</button>
+                    </div>
+
+                    <!-- BoyFanz Link -->
+                    <div class="world__boyfanz-link">
+                        <p>Want even more? Visit my full BoyFanz profile for exclusive content not available anywhere else.</p>
+                        <a href="#" class="btn btn--outline btn--lg" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                            Visit BoyFanz Profile
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Vault Section (VIP) -->
+            <section class="world__section" id="section-vault">
+                <div class="world__vault">
+                    <div class="world__vault-header">
+                        <h2>🔐 The Vault</h2>
+                        <p>Exclusive content for VIP members only. The stuff too hot for anywhere else.</p>
+                    </div>
+
+                    <div class="world__vault-locked">
+                        <div class="world__vault-lock-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="64"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
+                        </div>
+                        <h3>VIP Access Required</h3>
+                        <p>The Vault contains my most exclusive, uncensored content. Full-length videos, behind-the-scenes footage, and stuff I can't post anywhere else.</p>
+
+                        <div class="world__vault-preview">
+                            <div class="world__vault-preview-item"></div>
+                            <div class="world__vault-preview-item"></div>
+                            <div class="world__vault-preview-item"></div>
+                            <div class="world__vault-preview-item"></div>
+                        </div>
+
+                        <div class="world__vault-stats">
+                            <div class="world__vault-stat">
+                                <strong>150+</strong>
+                                <span>Exclusive Videos</span>
+                            </div>
+                            <div class="world__vault-stat">
+                                <strong>500+</strong>
+                                <span>Photos</span>
+                            </div>
+                            <div class="world__vault-stat">
+                                <strong>Weekly</strong>
+                                <span>New Content</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn--primary btn--lg world__vault-unlock">
+                            Unlock The Vault - $19.99/mo
+                        </button>
+                        <p class="world__vault-note">Cancel anytime. Instant access.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="world__section" id="section-profile">
+                <div class="world__profile-prompt">
+                    <h2>Sign in to view your profile</h2>
+                    <p>Create an account or sign in to access all features of Wyatt World.</p>
+                    <div class="world__profile-actions">
+                        <button class="btn btn--primary btn--lg">Create Free Account</button>
+                        <button class="btn btn--outline btn--lg">Sign In</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Sidebar -->
+        <aside class="world__sidebar world__sidebar--right">
+            <!-- Search -->
+            <div class="world__search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" placeholder="Search Wyatt World..." id="worldSearch">
+            </div>
+
+            <!-- Membership CTA -->
+            <div class="world__cta-card">
+                <h3>🔥 Go VIP</h3>
+                <ul class="world__cta-perks">
+                    <li>✓ DM Wyatt directly</li>
+                    <li>✓ Unlock The Vault (150+ videos)</li>
+                    <li>✓ VIP-only live streams</li>
+                    <li>✓ Exclusive group chat access</li>
+                    <li>✓ Early access to new content</li>
+                </ul>
+                <button class="btn btn--primary btn--lg">Join VIP - $19.99/mo</button>
+            </div>
+
+            <!-- Who to Follow -->
+            <div class="world__sidebar-section">
+                <h4>Who to Follow</h4>
+                <div class="world__follow-list">
+                    <div class="world__follow-item">
+                        <div class="world__follow-avatar">
+                            <img src="https://via.placeholder.com/40" alt="User">
+                        </div>
+                        <div class="world__follow-info">
+                            <strong>RoughRider85</strong>
+                            <span>Top supporter</span>
+                        </div>
+                        <button class="btn btn--sm btn--outline">Follow</button>
+                    </div>
+                    <div class="world__follow-item">
+                        <div class="world__follow-avatar">
+                            <img src="https://via.placeholder.com/40" alt="User">
+                        </div>
+                        <div class="world__follow-info">
+                            <strong>SouthernStud</strong>
+                            <span>VIP member</span>
+                        </div>
+                        <button class="btn btn--sm btn--outline">Follow</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending -->
+            <div class="world__sidebar-section">
+                <h4>Trending in Wyatt World</h4>
+                <div class="world__trending">
+                    <a href="#" class="world__trend-item">
+                        <span class="world__trend-tag">#NewContent</span>
+                        <span class="world__trend-count">234 posts</span>
+                    </a>
+                    <a href="#" class="world__trend-item">
+                        <span class="world__trend-tag">#WorkoutWednesday</span>
+                        <span class="world__trend-count">189 posts</span>
+                    </a>
+                    <a href="#" class="world__trend-item">
+                        <span class="world__trend-tag">#CountryBoy</span>
+                        <span class="world__trend-count">156 posts</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RentMen CTA -->
+            <div class="world__sidebar-section world__rentmen-cta">
+                <div class="world__rentmen-card">
+                    <div class="world__rentmen-header">
+                        <span class="world__rentmen-icon">RM</span>
+                        <div>
+                            <h4>Book Me on RentMen</h4>
+                            <span class="world__rentmen-status">Available</span>
+                        </div>
+                    </div>
+                    <p class="world__rentmen-text">Looking for a private encounter? Book time with me directly.</p>
+                    <a href="#" class="btn btn--primary btn--sm world__rentmen-btn" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                        View RentMen Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- Online Now -->
+            <div class="world__sidebar-section">
+                <h4>Online Now</h4>
+                <div class="world__online-list">
+                    <div class="world__online-avatars">
+                        <img src="https://via.placeholder.com/32" alt="User">
+                        <img src="https://via.placeholder.com/32" alt="User">
+                        <img src="https://via.placeholder.com/32" alt="User">
+                        <img src="https://via.placeholder.com/32" alt="User">
+                        <img src="https://via.placeholder.com/32" alt="User">
+                        <span class="world__online-more">+247</span>
+                    </div>
+                    <span class="world__online-count">252 members online</span>
+                </div>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="world__sidebar-footer">
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Help</a>
+                <span>© 2025 WXXXC</span>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Chat Window (Hidden by default) -->
+    <div class="world__chat-window hidden" id="chatWindow">
+        <div class="world__chat-header">
+            <button class="world__chat-back" id="chatBack">←</button>
+            <div class="world__chat-recipient">
+                <img src="https://via.placeholder.com/36" alt="User">
+                <div>
+                    <strong>The Locker Room</strong>
+                    <span>847 members • 52 online</span>
+                </div>
+            </div>
+            <button class="world__chat-options">⋯</button>
+        </div>
+        <div class="world__chat-messages" id="chatMessages">
+            <!-- Messages will load here -->
+        </div>
+        <div class="world__chat-input">
+            <button class="world__chat-attach">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/></svg>
+            </button>
+            <input type="text" placeholder="Type a message..." id="messageInput">
+            <button class="world__chat-send" id="sendMessage">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Sign Up Modal -->
+    <div class="world__modal hidden" id="signupModal">
+        <div class="world__modal-overlay"></div>
+        <div class="world__modal-content">
+            <button class="world__modal-close">&times;</button>
+            <h2>Join Wyatt World</h2>
+            <p>Create your free account and enter a whole new world.</p>
+            <form class="world__auth-form" id="signupForm">
+                <div class="form__group">
+                    <input type="text" class="form__input" placeholder="Username" required>
+                </div>
+                <div class="form__group">
+                    <input type="email" class="form__input" placeholder="Email" required>
+                </div>
+                <div class="form__group">
+                    <input type="password" class="form__input" placeholder="Password" required>
+                </div>
+                <div class="form__group">
+                    <label class="world__checkbox">
+                        <input type="checkbox" required>
+                        <span>I am 18+ years old and agree to the <a href="#">Terms of Service</a></span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn--primary btn--lg btn--full">Create Account</button>
+            </form>
+            <div class="world__auth-divider">or</div>
+            <button class="btn btn--outline btn--lg btn--full world__social-btn">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+                Continue with X
+            </button>
+            <p class="world__auth-switch">Already have an account? <a href="#" id="showLogin">Sign In</a></p>
+        </div>
+    </div>
+
+    <!-- Tip Modal -->
+    <div class="world__modal hidden" id="tipModal">
+        <div class="world__modal-overlay"></div>
+        <div class="world__modal-content world__modal-content--tip">
+            <button class="world__modal-close">&times;</button>
+            <h2>Send Wyatt a Tip 💰</h2>
+            <p>Show your appreciation! Tips help support my content.</p>
+            <div class="world__tip-amounts">
+                <button class="world__tip-btn" data-amount="5">$5</button>
+                <button class="world__tip-btn" data-amount="10">$10</button>
+                <button class="world__tip-btn world__tip-btn--popular" data-amount="25">$25</button>
+                <button class="world__tip-btn" data-amount="50">$50</button>
+                <button class="world__tip-btn" data-amount="100">$100</button>
+                <button class="world__tip-btn world__tip-btn--custom">Custom</button>
+            </div>
+            <div class="form__group">
+                <textarea class="form__input" placeholder="Add a message (optional)" rows="2"></textarea>
+            </div>
+            <button class="btn btn--primary btn--lg btn--full">Send Tip</button>
+        </div>
+    </div>
+
+    <script src="js/api.js?v=999"></script>
+    <script src="js/main.js?v=999"></script>
+    <script src="js/world.js"></script>
+</body>
+</html>

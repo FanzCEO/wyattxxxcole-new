@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe - WYATT XXX COLE</title>
+    <meta name="description" content="Join the WYATT XXX COLE fan club. Exclusive content, behind the scenes, and VIP access.">
+    <link rel="stylesheet" href="css/styles.css?v=6">
+    <link rel="stylesheet" href="css/effects.css?v=6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Variable aliases for compatibility */
+        :root {
+            --color-cream: var(--cream, #F5EDE4);
+            --color-whiskey: var(--whiskey, #C68E3F);
+            --color-rust: var(--rust, #A44A2A);
+            --color-dark: var(--bg-primary, #000000);
+            --color-charcoal: var(--bg-secondary, #0a0a0a);
+            --color-stone: var(--text-secondary, #B8A99A);
+        }
+
+        /* Subscription Page Specific Styles */
+        .subscribe-hero {
+            background: linear-gradient(135deg, rgba(13, 11, 9, 0.95), rgba(26, 22, 18, 0.9)),
+                        url('images/hero-bg.jpg') center/cover;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .subscribe-hero__title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--color-cream);
+            margin-bottom: 1rem;
+        }
+
+        .subscribe-hero__subtitle {
+            color: var(--color-whiskey);
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Tier Cards */
+        .tiers {
+            padding: 80px 0;
+            background: var(--color-dark);
+        }
+
+        .tiers__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .tier-card {
+            background: linear-gradient(145deg, rgba(26, 22, 18, 0.9), rgba(13, 11, 9, 0.95));
+            border: 1px solid var(--color-rust);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-rust), var(--color-whiskey));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-whiskey);
+            box-shadow: 0 20px 60px rgba(198, 142, 63, 0.2);
+        }
+
+        .tier-card:hover::before {
+            opacity: 1;
+        }
+
+        .tier-card--featured {
+            border-color: var(--color-whiskey);
+            transform: scale(1.02);
+        }
+
+        .tier-card--featured::before {
+            opacity: 1;
+        }
+
+        .tier-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, var(--color-whiskey), var(--color-rust));
+            color: var(--color-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tier-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-rust), var(--color-whiskey));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .tier-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-tagline {
+            color: var(--color-whiskey);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .tier-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tier-price__amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--color-cream);
+            font-weight: 700;
+        }
+
+        .tier-price__period {
+            color: var(--color-stone);
+            font-size: 1rem;
+        }
+
+        .tier-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+
+        .tier-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            color: var(--color-cream);
+            border-bottom: 1px solid rgba(212, 196, 168, 0.1);
+        }
+
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+
+        .tier-features__icon {
+            color: var(--color-whiskey);
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .tier-features__icon--no {
+            color: var(--color-stone);
+            opacity: 0.5;
+        }
+
+        .tier-features li.disabled {
+            opacity: 0.4;
+            text-decoration: line-through;
+        }
+
+        .tier-cta {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .tier-cta--primary {
+            background: linear-gradient(135deg, var(--color-whiskey), var(--color-rust));
+            border: none;
+            color: var(--color-dark);
+        }
+
+        .tier-cta--primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(198, 142, 63, 0.4);
+        }
+
+        .tier-cta--secondary {
+            background: transparent;
+            border: 2px solid var(--color-rust);
+            color: var(--color-cream);
+        }
+
+        .tier-cta--secondary:hover {
+            background: var(--color-rust);
+            color: var(--color-dark);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--color-charcoal) 0%, var(--color-dark) 100%);
+        }
+
+        .benefits__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--color-cream);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .benefits__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(164, 74, 42, 0.2), rgba(198, 142, 63, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .benefit-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-desc {
+            color: var(--color-stone);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: var(--color-dark);
+        }
+
+        .faq__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--color-cream);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq__list {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(212, 196, 168, 0.2);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .faq-question__text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--color-cream);
+        }
+
+        .faq-question__icon {
+            color: var(--color-whiskey);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question__icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--color-stone);
+            line-height: 1.7;
+        }
+
+        /* Subscription Modal */
+        .sub-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 1rem;
+        }
+
+        .sub-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sub-modal__content {
+            background: linear-gradient(145deg, var(--color-charcoal), var(--color-dark));
+            border: 1px solid var(--color-rust);
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            padding: 2.5rem;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .sub-modal.active .sub-modal__content {
+            transform: scale(1);
+        }
+
+        .sub-modal__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--color-stone);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .sub-modal__close:hover {
+            color: var(--color-cream);
+        }
+
+        .sub-modal__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-modal__tier {
+            color: var(--color-whiskey);
+            margin-bottom: 2rem;
+        }
+
+        .sub-form__group {
+            margin-bottom: 1.5rem;
+        }
+
+        .sub-form__label {
+            display: block;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .sub-form__input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(13, 11, 9, 0.8);
+            border: 1px solid var(--color-rust);
+            border-radius: 8px;
+            color: var(--color-cream);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .sub-form__input:focus {
+            outline: none;
+            border-color: var(--color-whiskey);
+        }
+
+        .sub-form__input::placeholder {
+            color: var(--color-stone);
+        }
+
+        .sub-form__terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sub-form__terms input {
+            margin-top: 4px;
+        }
+
+        .sub-form__terms label {
+            color: var(--color-stone);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .sub-form__terms a {
+            color: var(--color-whiskey);
+        }
+
+        .sub-form__submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--color-whiskey), var(--color-rust));
+            border: none;
+            border-radius: 8px;
+            color: var(--color-dark);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sub-form__submit:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(198, 142, 63, 0.4);
+        }
+
+        .sub-form__submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Success State */
+        .sub-success {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .sub-success__icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-whiskey), var(--color-rust));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .sub-success__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-success__message {
+            color: var(--color-stone);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tier-card--featured {
+                transform: none;
+            }
+
+            .tier-price__amount {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">
+                <img src="images/logo.png" alt="WYATT XXX COLE" class="nav__logo-img">
+            </a>
+            <button class="nav__toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav__menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="booking.html">Book Me</a></li>
+                <li><a href="subscribe.html" class="active">Subscribe</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="subscribe-hero">
+        <div class="container">
+            <h1 class="subscribe-hero__title">Join the Inner Circle</h1>
+            <p class="subscribe-hero__subtitle">Get exclusive access to content, behind-the-scenes, and VIP perks you won't find anywhere else.</p>
+        </div>
+    </section>
+
+    <!-- Subscription Tiers -->
+    <section class="tiers">
+        <div class="tiers__grid">
+            <!-- Free Tier -->
+            <div class="tier-card" data-tier="free">
+                <div class="tier-icon">🤠</div>
+                <h3 class="tier-name">Ranch Hand</h3>
+                <p class="tier-tagline">Just gettin' started</p>
+                <div class="tier-price">
+                    <span class="tier-price__amount">$0</span>
+                    <span class="tier-price__period">/ forever</span>
+                </div>
+                <ul class="tier-features">
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Access to free gallery content</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Weekly newsletter updates</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Public community access</span>
+                    </li>
+                    <li class="disabled">
+                        <span class="tier-features__icon tier-features__icon--no">✕</span>
+                        <span>Exclusive content</span>
+                    </li>
+                    <li class="disabled">
+                        <span class="tier-features__icon tier-features__icon--no">✕</span>
+                        <span>Direct messaging</span>
+                    </li>
+                </ul>
+                <button class="tier-cta tier-cta--secondary" onclick="openSubscribeModal('free', 0)">Join Free</button>
+            </div>
+
+            <!-- Silver Tier -->
+            <div class="tier-card" data-tier="silver">
+                <div class="tier-icon">⭐</div>
+                <h3 class="tier-name">Silver Spur</h3>
+                <p class="tier-tagline">For the dedicated fans</p>
+                <div class="tier-price">
+                    <span class="tier-price__amount">$9.99</span>
+                    <span class="tier-price__period">/ month</span>
+                </div>
+                <ul class="tier-features">
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Everything in Ranch Hand</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Exclusive photo sets weekly</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Behind-the-scenes content</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Early access to new releases</span>
+                    </li>
+                    <li class="disabled">
+                        <span class="tier-features__icon tier-features__icon--no">✕</span>
+                        <span>Direct messaging</span>
+                    </li>
+                </ul>
+                <button class="tier-cta tier-cta--secondary" onclick="openSubscribeModal('silver', 9.99)">Subscribe</button>
+            </div>
+
+            <!-- Gold Tier (Featured) -->
+            <div class="tier-card tier-card--featured" data-tier="gold">
+                <span class="tier-badge">Most Popular</span>
+                <div class="tier-icon">🏆</div>
+                <h3 class="tier-name">Gold Buckle</h3>
+                <p class="tier-tagline">The real deal</p>
+                <div class="tier-price">
+                    <span class="tier-price__amount">$24.99</span>
+                    <span class="tier-price__period">/ month</span>
+                </div>
+                <ul class="tier-features">
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Everything in Silver Spur</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Exclusive videos weekly</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Direct messaging access</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Monthly live Q&A sessions</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>10% off all bookings</span>
+                    </li>
+                </ul>
+                <button class="tier-cta tier-cta--primary" onclick="openSubscribeModal('gold', 24.99)">Subscribe Now</button>
+            </div>
+
+            <!-- VIP Tier -->
+            <div class="tier-card" data-tier="vip">
+                <span class="tier-badge">Elite</span>
+                <div class="tier-icon">👑</div>
+                <h3 class="tier-name">VIP Cowboy</h3>
+                <p class="tier-tagline">Top of the herd</p>
+                <div class="tier-price">
+                    <span class="tier-price__amount">$49.99</span>
+                    <span class="tier-price__period">/ month</span>
+                </div>
+                <ul class="tier-features">
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Everything in Gold Buckle</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Priority response to messages</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Custom content requests</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>Free monthly video call (15 min)</span>
+                    </li>
+                    <li>
+                        <span class="tier-features__icon">✓</span>
+                        <span>25% off all bookings</span>
+                    </li>
+                </ul>
+                <button class="tier-cta tier-cta--primary" onclick="openSubscribeModal('vip', 49.99)">Go VIP</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <h2 class="benefits__title">Why Subscribe?</h2>
+        <div class="benefits__grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">🔒</div>
+                <h3 class="benefit-title">Exclusive Content</h3>
+                <p class="benefit-desc">Access photos and videos you won't find anywhere else on the internet.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💬</div>
+                <h3 class="benefit-title">Direct Access</h3>
+                <p class="benefit-desc">Message me directly and get personal responses.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎁</div>
+                <h3 class="benefit-title">Member Perks</h3>
+                <p class="benefit-desc">Discounts on bookings, early access, and special surprises.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🤝</div>
+                <h3 class="benefit-title">Community</h3>
+                <p class="benefit-desc">Join a community of like-minded fans and connect.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2 class="faq__title">Questions?</h2>
+        <div class="faq__list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question__text">How does billing work?</span>
+                    <span class="faq-question__icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You'll be charged on the same day each month. Cancel anytime before your renewal date to avoid being charged for the next month.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question__text">Can I change my subscription tier?</span>
+                    <span class="faq-question__icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! You can upgrade or downgrade your subscription at any time. If you upgrade, you'll get immediate access to your new tier's benefits.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question__text">How do I access exclusive content?</span>
+                    <span class="faq-question__icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Once subscribed, you'll receive login credentials to access the members-only gallery. New content is posted regularly based on your tier level.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question__text">What payment methods do you accept?</span>
+                    <span class="faq-question__icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We accept all major credit cards, debit cards, and PayPal. All payments are processed securely and discreetly.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question__text">Is my subscription discreet?</span>
+                    <span class="faq-question__icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. Your billing statement will show a discreet company name. Your privacy is our priority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Modal -->
+    <div class="sub-modal" id="subscribeModal">
+        <div class="sub-modal__content">
+            <button class="sub-modal__close" onclick="closeSubscribeModal()">&times;</button>
+
+            <!-- Form View -->
+            <div id="modalForm">
+                <h3 class="sub-modal__title">Subscribe to <span id="modalTierName">Gold Buckle</span></h3>
+                <p class="sub-modal__tier"><span id="modalPrice">$24.99</span>/month</p>
+
+                <form id="subscriptionForm" onsubmit="handleSubscription(event)">
+                    <div class="sub-form__group">
+                        <label class="sub-form__label" for="subEmail">Email Address</label>
+                        <input type="email" id="subEmail" class="sub-form__input" placeholder="your@email.com" required>
+                    </div>
+                    <div class="sub-form__group">
+                        <label class="sub-form__label" for="subName">Display Name</label>
+                        <input type="text" id="subName" class="sub-form__input" placeholder="How should I call you?" required>
+                    </div>
+                    <div class="sub-form__terms">
+                        <input type="checkbox" id="subTerms" required>
+                        <label for="subTerms">I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>. I confirm I am 18+ years old.</label>
+                    </div>
+                    <button type="submit" class="sub-form__submit" id="submitBtn">Continue to Payment</button>
+                </form>
+            </div>
+
+            <!-- Success View -->
+            <div id="modalSuccess" style="display: none;">
+                <div class="sub-success">
+                    <div class="sub-success__icon">✓</div>
+                    <h3 class="sub-success__title">Welcome to the Family!</h3>
+                    <p class="sub-success__message">Check your email for login details and next steps.</p>
+                    <button class="tier-cta tier-cta--primary" onclick="closeSubscribeModal()">Got It</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <img src="images/logo.png" alt="WYATT XXX COLE" class="footer__logo-img">
+                <p class="footer__tagline">Country Bred. Fully Loaded.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__column">
+                    <h4>Navigate</h4>
+                    <a href="index.html">Home</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="booking.html">Book Me</a>
+                    <a href="subscribe.html">Subscribe</a>
+                </div>
+                <div class="footer__column">
+                    <h4>Legal</h4>
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="2257.html">2257</a>
+                </div>
+            </div>
+            <div class="footer__social">
+                <a href="#" aria-label="Twitter">𝕏</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="OnlyFans">🔥</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2025 WYATT XXX COLE. All rights reserved. 18+ Only.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=6"></script>
+    <script src="js/effects.js?v=6"></script>
+    <script>
+        // Load subscription pricing from API
+        let subscriptionPrices = {};
+
+        async function loadSubscriptionPricing() {
+            try {
+                const res = await fetch('api/pricing.php?action=get-subscriptions');
+                const data = await res.json();
+                if (data.success && data.subscriptions) {
+                    subscriptionPrices = data.subscriptions;
+                    updateSubscriptionDisplay(data.subscriptions);
+                }
+            } catch (err) {
+                console.log('Using default subscription prices');
+            }
+        }
+
+        function updateSubscriptionDisplay(subs) {
+            // Update each tier card
+            ['free', 'silver', 'gold', 'vip'].forEach(tier => {
+                const sub = subs[tier];
+                if (!sub) return;
+
+                const card = document.querySelector(`[data-tier="${tier}"]`);
+                if (!card) return;
+
+                // Update tagline
+                const tagline = card.querySelector('.tier-tagline');
+                if (tagline && sub.tagline) tagline.textContent = sub.tagline;
+
+                // Update price
+                const priceAmount = card.querySelector('.tier-price__amount');
+                if (priceAmount) {
+                    priceAmount.textContent = tier === 'free' ? '$0' : `$${sub.price.toFixed(2)}`;
+                }
+
+                // Update CTA button with dynamic price
+                const cta = card.querySelector('.tier-cta');
+                if (cta) {
+                    const currentOnclick = cta.getAttribute('onclick');
+                    if (currentOnclick && currentOnclick.includes('openSubscribeModal')) {
+                        cta.setAttribute('onclick', `openSubscribeModal('${tier}', ${sub.price})`);
+                    }
+                }
+
+                // Update discount info if applicable
+                if (sub.discount && tier !== 'free') {
+                    const discountItem = card.querySelector('.tier-features li:last-child span:last-child');
+                    if (discountItem && discountItem.textContent.includes('off all bookings')) {
+                        discountItem.textContent = `${sub.discount}% off all bookings`;
+                    }
+                }
+            });
+        }
+
+        // Load pricing on page load
+        loadSubscriptionPricing();
+
+        // Subscription tier data
+        const tierNames = {
+            'free': 'Ranch Hand',
+            'silver': 'Silver Spur',
+            'gold': 'Gold Buckle',
+            'vip': 'VIP Cowboy'
+        };
+
+        let selectedTier = '';
+        let selectedPrice = 0;
+
+        // Open subscription modal
+        function openSubscribeModal(tier, price) {
+            selectedTier = tier;
+            selectedPrice = price;
+
+            document.getElementById('modalTierName').textContent = tierNames[tier];
+            document.getElementById('modalPrice').textContent = price === 0 ? 'Free' : `$${price.toFixed(2)}`;
+            document.getElementById('submitBtn').textContent = price === 0 ? 'Join Now' : 'Continue to Payment';
+
+            // Reset form
+            document.getElementById('subscriptionForm').reset();
+            document.getElementById('modalForm').style.display = 'block';
+            document.getElementById('modalSuccess').style.display = 'none';
+
+            document.getElementById('subscribeModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeSubscribeModal() {
+            document.getElementById('subscribeModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Handle subscription form
+        function handleSubscription(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('subEmail').value;
+            const name = document.getElementById('subName').value;
+            const submitBtn = document.getElementById('submitBtn');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            // Simulate API call
+            setTimeout(() => {
+                // In production, this would redirect to payment processor for paid tiers
+                // For now, show success
+                document.getElementById('modalForm').style.display = 'none';
+                document.getElementById('modalSuccess').style.display = 'block';
+
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.textContent = selectedPrice === 0 ? 'Join Now' : 'Continue to Payment';
+            }, 1500);
+        }
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.closest('.faq-item');
+                const wasActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Toggle current
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Close modal on outside click
+        document.getElementById('subscribeModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSubscribeModal();
+            }
+        });
+
+        // Close modal on escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSubscribeModal();
+            }
+        });
+    </script>
+</body>
+</html>

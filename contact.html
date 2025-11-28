@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - WYATT XXX COLE</title>
+    <meta name="description" content="Get in touch with WYATT XXX COLE - Business inquiries, collaborations, and fan messages.">
+    <link rel="stylesheet" href="css/styles.css?v=6">
+    <link rel="stylesheet" href="css/effects.css?v=6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Contact Page Styles */
+        .contact-hero {
+            background: linear-gradient(135deg, rgba(13, 11, 9, 0.95), rgba(26, 22, 18, 0.9)),
+                        url('images/hero-bg.jpg') center/cover;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .contact-hero__title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--color-cream);
+            margin-bottom: 1rem;
+        }
+
+        .contact-hero__subtitle {
+            color: var(--color-whiskey);
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Layout */
+        .contact-section {
+            padding: 80px 0;
+            background: var(--color-dark);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Contact Form Card */
+        .contact-card {
+            background: linear-gradient(145deg, rgba(26, 22, 18, 0.9), rgba(13, 11, 9, 0.95));
+            border: 1px solid var(--color-rust);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .contact-card__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card__subtitle {
+            color: var(--color-stone);
+            margin-bottom: 2rem;
+        }
+
+        /* Form Styles */
+        .contact-form__row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .contact-form__row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-form__group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form__label {
+            display: block;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .contact-form__label span {
+            color: var(--color-rust);
+        }
+
+        .contact-form__input,
+        .contact-form__select,
+        .contact-form__textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(13, 11, 9, 0.8);
+            border: 1px solid var(--color-rust);
+            border-radius: 8px;
+            color: var(--color-cream);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form__input:focus,
+        .contact-form__select:focus,
+        .contact-form__textarea:focus {
+            outline: none;
+            border-color: var(--color-whiskey);
+            box-shadow: 0 0 0 3px rgba(198, 142, 63, 0.1);
+        }
+
+        .contact-form__input::placeholder,
+        .contact-form__textarea::placeholder {
+            color: var(--color-stone);
+        }
+
+        .contact-form__select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C68E3F' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 3rem;
+        }
+
+        .contact-form__select option {
+            background: var(--color-dark);
+            color: var(--color-cream);
+        }
+
+        .contact-form__textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form__attachment {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(13, 11, 9, 0.5);
+            border: 2px dashed var(--color-rust);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form__attachment:hover {
+            border-color: var(--color-whiskey);
+            background: rgba(198, 142, 63, 0.05);
+        }
+
+        .contact-form__attachment-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-rust), var(--color-whiskey));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .contact-form__attachment-text {
+            flex: 1;
+        }
+
+        .contact-form__attachment-text strong {
+            display: block;
+            color: var(--color-cream);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-form__attachment-text span {
+            color: var(--color-stone);
+            font-size: 0.85rem;
+        }
+
+        .contact-form__file {
+            display: none;
+        }
+
+        .contact-form__files-list {
+            margin-top: 1rem;
+        }
+
+        .contact-form__file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            background: rgba(198, 142, 63, 0.1);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form__file-name {
+            color: var(--color-cream);
+            font-size: 0.9rem;
+        }
+
+        .contact-form__file-remove {
+            background: none;
+            border: none;
+            color: var(--color-rust);
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .contact-form__submit {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, var(--color-whiskey), var(--color-rust));
+            border: none;
+            border-radius: 8px;
+            color: var(--color-dark);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .contact-form__submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(198, 142, 63, 0.4);
+        }
+
+        .contact-form__submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Sidebar */
+        .contact-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Quick Contact Card */
+        .quick-contact {
+            background: linear-gradient(145deg, rgba(26, 22, 18, 0.9), rgba(13, 11, 9, 0.95));
+            border: 1px solid var(--color-rust);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .quick-contact__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--color-cream);
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-contact__item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 196, 168, 0.1);
+        }
+
+        .quick-contact__item:last-child {
+            border-bottom: none;
+        }
+
+        .quick-contact__icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(164, 74, 42, 0.2), rgba(198, 142, 63, 0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .quick-contact__info h4 {
+            color: var(--color-cream);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .quick-contact__info a,
+        .quick-contact__info p {
+            color: var(--color-whiskey);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .quick-contact__info a:hover {
+            color: var(--color-cream);
+        }
+
+        /* Response Time Card */
+        .response-card {
+            background: linear-gradient(135deg, rgba(164, 74, 42, 0.2), rgba(198, 142, 63, 0.1));
+            border: 1px solid var(--color-rust);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .response-card__icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-rust), var(--color-whiskey));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .response-card__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .response-card__time {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-whiskey);
+            margin-bottom: 0.5rem;
+        }
+
+        .response-card__note {
+            color: var(--color-stone);
+            font-size: 0.9rem;
+        }
+
+        /* Social Links */
+        .social-card {
+            background: linear-gradient(145deg, rgba(26, 22, 18, 0.9), rgba(13, 11, 9, 0.95));
+            border: 1px solid var(--color-rust);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .social-card__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--color-cream);
+            margin-bottom: 1rem;
+        }
+
+        .social-card__links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: rgba(13, 11, 9, 0.5);
+            border: 1px solid rgba(164, 74, 42, 0.3);
+            border-radius: 12px;
+            color: var(--color-cream);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(198, 142, 63, 0.1);
+            border-color: var(--color-whiskey);
+            transform: translateY(-2px);
+        }
+
+        .social-link__icon {
+            font-size: 1.5rem;
+        }
+
+        .social-link__name {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Success Message */
+        .contact-success {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .contact-success.active {
+            display: block;
+        }
+
+        .contact-success__icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-whiskey), var(--color-rust));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .contact-success__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-success__message {
+            color: var(--color-stone);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .contact-success__btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--color-rust);
+            border-radius: 8px;
+            color: var(--color-cream);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-success__btn:hover {
+            background: var(--color-rust);
+            color: var(--color-dark);
+        }
+
+        /* Character Counter */
+        .char-counter {
+            text-align: right;
+            color: var(--color-stone);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .char-counter.warning {
+            color: var(--color-whiskey);
+        }
+
+        .char-counter.limit {
+            color: var(--color-rust);
+        }
+
+        /* Priority Indicator */
+        .priority-indicator {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .priority-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(212, 196, 168, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .priority-dot.active {
+            background: var(--color-whiskey);
+            box-shadow: 0 0 10px rgba(198, 142, 63, 0.5);
+        }
+
+        .priority-label {
+            color: var(--color-stone);
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+        }
+
+        /* Form validation */
+        .contact-form__input.error,
+        .contact-form__select.error,
+        .contact-form__textarea.error {
+            border-color: #e74c3c;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo">
+                <img src="images/logo.png" alt="WYATT XXX COLE" class="nav__logo-img">
+            </a>
+            <button class="nav__toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav__menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="booking.html">Book Me</a></li>
+                <li><a href="subscribe.html">Subscribe</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="contact-hero__title">Get In Touch</h1>
+            <p class="contact-hero__subtitle">Business inquiries, collaborations, or just want to say howdy - I'm all ears.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <!-- Main Contact Form -->
+            <div class="contact-card">
+                <h2 class="contact-card__title">Send Me a Message</h2>
+                <p class="contact-card__subtitle">Fill out the form below and I'll get back to you as soon as possible.</p>
+
+                <!-- Form -->
+                <form id="contactForm">
+                    <div class="contact-form__row">
+                        <div class="contact-form__group">
+                            <label class="contact-form__label" for="firstName">First Name <span>*</span></label>
+                            <input type="text" id="firstName" class="contact-form__input" placeholder="Your first name" required>
+                        </div>
+                        <div class="contact-form__group">
+                            <label class="contact-form__label" for="lastName">Last Name</label>
+                            <input type="text" id="lastName" class="contact-form__input" placeholder="Your last name">
+                        </div>
+                    </div>
+
+                    <div class="contact-form__group">
+                        <label class="contact-form__label" for="email">Email Address <span>*</span></label>
+                        <input type="email" id="email" class="contact-form__input" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="contact-form__group">
+                        <label class="contact-form__label" for="subject">Subject <span>*</span></label>
+                        <select id="subject" class="contact-form__select" required>
+                            <option value="">Select a topic...</option>
+                            <option value="business">Business Inquiry</option>
+                            <option value="booking">Booking Question</option>
+                            <option value="collab">Collaboration Proposal</option>
+                            <option value="press">Press / Media</option>
+                            <option value="fan">Fan Message</option>
+                            <option value="support">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="priority-indicator" id="priorityIndicator" style="display: none;">
+                            <div class="priority-dot" id="dot1"></div>
+                            <div class="priority-dot" id="dot2"></div>
+                            <div class="priority-dot" id="dot3"></div>
+                            <span class="priority-label" id="priorityLabel"></span>
+                        </div>
+                    </div>
+
+                    <div class="contact-form__group">
+                        <label class="contact-form__label" for="message">Your Message <span>*</span></label>
+                        <textarea id="message" class="contact-form__textarea" placeholder="What's on your mind?" maxlength="2000" required></textarea>
+                        <div class="char-counter"><span id="charCount">0</span>/2000</div>
+                    </div>
+
+                    <div class="contact-form__group">
+                        <label class="contact-form__label">Attachments (Optional)</label>
+                        <label class="contact-form__attachment" for="attachments">
+                            <div class="contact-form__attachment-icon">📎</div>
+                            <div class="contact-form__attachment-text">
+                                <strong>Click to attach files</strong>
+                                <span>Max 3 files, 5MB each (JPG, PNG, PDF)</span>
+                            </div>
+                        </label>
+                        <input type="file" id="attachments" class="contact-form__file" multiple accept=".jpg,.jpeg,.png,.pdf">
+                        <div class="contact-form__files-list" id="filesList"></div>
+                    </div>
+
+                    <button type="submit" class="contact-form__submit" id="submitBtn">
+                        <span>Send Message</span>
+                        <span>→</span>
+                    </button>
+                </form>
+
+                <!-- Success Message -->
+                <div class="contact-success" id="successMessage">
+                    <div class="contact-success__icon">✓</div>
+                    <h3 class="contact-success__title">Message Sent!</h3>
+                    <p class="contact-success__message">Thanks for reaching out. I've received your message and will get back to you within 24-48 hours.</p>
+                    <button class="contact-success__btn" onclick="resetForm()">Send Another Message</button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="contact-sidebar">
+                <!-- Response Time -->
+                <div class="response-card">
+                    <div class="response-card__icon">⏱️</div>
+                    <h3 class="response-card__title">Average Response Time</h3>
+                    <div class="response-card__time">24-48 hrs</div>
+                    <p class="response-card__note">Business inquiries get priority</p>
+                </div>
+
+                <!-- Quick Contact -->
+                <div class="quick-contact">
+                    <h3 class="quick-contact__title">Quick Contact</h3>
+                    <div class="quick-contact__item">
+                        <div class="quick-contact__icon">📧</div>
+                        <div class="quick-contact__info">
+                            <h4>Email</h4>
+                            <a href="mailto:contact@wyattxxxcole.com">contact@wyattxxxcole.com</a>
+                        </div>
+                    </div>
+                    <div class="quick-contact__item">
+                        <div class="quick-contact__icon">💼</div>
+                        <div class="quick-contact__info">
+                            <h4>Business Only</h4>
+                            <a href="mailto:business@wyattxxxcole.com">business@wyattxxxcole.com</a>
+                        </div>
+                    </div>
+                    <div class="quick-contact__item">
+                        <div class="quick-contact__icon">📍</div>
+                        <div class="quick-contact__info">
+                            <h4>Based In</h4>
+                            <p>Texas, USA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-card">
+                    <h3 class="social-card__title">Connect With Me</h3>
+                    <div class="social-card__links">
+                        <a href="#" class="social-link">
+                            <span class="social-link__icon">𝕏</span>
+                            <span class="social-link__name">Twitter</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-link__icon">📷</span>
+                            <span class="social-link__name">Instagram</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-link__icon">🔥</span>
+                            <span class="social-link__name">OnlyFans</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <img src="images/logo.png" alt="WYATT XXX COLE" class="footer__logo-img">
+                <p class="footer__tagline">Country Bred. Fully Loaded.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__column">
+                    <h4>Navigate</h4>
+                    <a href="index.html">Home</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="booking.html">Book Me</a>
+                    <a href="subscribe.html">Subscribe</a>
+                </div>
+                <div class="footer__column">
+                    <h4>Legal</h4>
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="2257.html">2257</a>
+                </div>
+            </div>
+            <div class="footer__social">
+                <a href="#" aria-label="Twitter">𝕏</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="OnlyFans">🔥</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2025 WYATT XXX COLE. All rights reserved. 18+ Only.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=6"></script>
+    <script src="js/effects.js?v=6"></script>
+    <script>
+        // Priority levels for different subjects
+        const priorities = {
+            'business': { level: 3, label: 'High Priority' },
+            'booking': { level: 3, label: 'High Priority' },
+            'collab': { level: 2, label: 'Medium Priority' },
+            'press': { level: 3, label: 'High Priority' },
+            'fan': { level: 1, label: 'Standard' },
+            'support': { level: 2, label: 'Medium Priority' },
+            'other': { level: 1, label: 'Standard' }
+        };
+
+        // Character counter
+        const messageField = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+
+        messageField.addEventListener('input', function() {
+            const count = this.value.length;
+            charCount.textContent = count;
+
+            const counter = this.nextElementSibling;
+            counter.classList.remove('warning', 'limit');
+
+            if (count >= 1800) {
+                counter.classList.add('limit');
+            } else if (count >= 1500) {
+                counter.classList.add('warning');
+            }
+        });
+
+        // Subject priority indicator
+        const subjectField = document.getElementById('subject');
+        const priorityIndicator = document.getElementById('priorityIndicator');
+
+        subjectField.addEventListener('change', function() {
+            const priority = priorities[this.value];
+
+            if (priority) {
+                priorityIndicator.style.display = 'flex';
+                document.getElementById('priorityLabel').textContent = priority.label;
+
+                // Update dots
+                for (let i = 1; i <= 3; i++) {
+                    const dot = document.getElementById('dot' + i);
+                    dot.classList.toggle('active', i <= priority.level);
+                }
+            } else {
+                priorityIndicator.style.display = 'none';
+            }
+        });
+
+        // File attachments
+        const fileInput = document.getElementById('attachments');
+        const filesList = document.getElementById('filesList');
+        let attachedFiles = [];
+
+        fileInput.addEventListener('change', function() {
+            const files = Array.from(this.files);
+
+            files.forEach(file => {
+                // Check max files
+                if (attachedFiles.length >= 3) {
+                    alert('Maximum 3 files allowed');
+                    return;
+                }
+
+                // Check file size (5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert(`${file.name} is too large. Max size is 5MB.`);
+                    return;
+                }
+
+                // Check file type
+                const validTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+                if (!validTypes.includes(file.type)) {
+                    alert(`${file.name} is not a valid file type.`);
+                    return;
+                }
+
+                attachedFiles.push(file);
+            });
+
+            renderFilesList();
+            this.value = ''; // Reset input
+        });
+
+        function renderFilesList() {
+            filesList.innerHTML = attachedFiles.map((file, index) => `
+                <div class="contact-form__file-item">
+                    <span class="contact-form__file-name">${file.name}</span>
+                    <button type="button" class="contact-form__file-remove" onclick="removeFile(${index})">&times;</button>
+                </div>
+            `).join('');
+        }
+
+        function removeFile(index) {
+            attachedFiles.splice(index, 1);
+            renderFilesList();
+        }
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+
+            if (!firstName || !email || !subject || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Sending...</span>';
+
+            // Simulate API call
+            setTimeout(() => {
+                // In production, this would send to your API
+                const formData = {
+                    firstName,
+                    lastName: document.getElementById('lastName').value.trim(),
+                    email,
+                    subject,
+                    message,
+                    files: attachedFiles.map(f => f.name)
+                };
+
+                console.log('Form submitted:', formData);
+
+                // Show success
+                contactForm.style.display = 'none';
+                successMessage.classList.add('active');
+
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Send Message</span><span>→</span>';
+            }, 1500);
+        });
+
+        function resetForm() {
+            contactForm.reset();
+            attachedFiles = [];
+            renderFilesList();
+            charCount.textContent = '0';
+            priorityIndicator.style.display = 'none';
+
+            contactForm.style.display = 'block';
+            successMessage.classList.remove('active');
+        }
+
+        // Email validation on blur
+        document.getElementById('email').addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            this.classList.toggle('error', this.value && !emailRegex.test(this.value));
+        });
+    </script>
+</body>
+</html>

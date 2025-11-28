@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Panel | WYATT XXX COLE</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .admin-container {
+            min-height: 100vh;
+            padding: var(--space-2xl);
+        }
+
+        /* Login Form */
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: var(--bg-card);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+        }
+        .login-container h1 {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            font-size: 2rem;
+        }
+        .login-container .logo {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        .login-container .logo img {
+            max-width: 150px;
+            margin: 0 auto;
+        }
+
+        /* Dashboard */
+        .dashboard { display: none; }
+        .dashboard.active { display: block; }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid rgba(198, 142, 63, 0.2);
+        }
+        .dashboard-header h1 {
+            font-size: 2rem;
+        }
+
+        .dashboard-nav {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+        .dashboard-nav button {
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--bg-card);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            font-family: var(--font-condensed);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        .dashboard-nav button:hover,
+        .dashboard-nav button.active {
+            background: var(--whiskey);
+            color: var(--bg-primary);
+            border-color: var(--whiskey);
+        }
+
+        /* Panels */
+        .panel { display: none; }
+        .panel.active { display: block; }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+        .panel-header h2 {
+            font-size: 1.5rem;
+        }
+
+        /* Stats Grid */
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+        .admin-stat {
+            background: var(--bg-card);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(198, 142, 63, 0.1);
+        }
+        .admin-stat__value {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--whiskey);
+            line-height: 1;
+        }
+        .admin-stat__label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: var(--space-xs);
+        }
+
+        /* Table */
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .admin-table th,
+        .admin-table td {
+            padding: var(--space-md);
+            text-align: left;
+            border-bottom: 1px solid rgba(198, 142, 63, 0.1);
+        }
+        .admin-table th {
+            background: var(--bg-secondary);
+            font-family: var(--font-condensed);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--whiskey);
+        }
+        .admin-table tr:hover {
+            background: rgba(198, 142, 63, 0.05);
+        }
+        .admin-table .status {
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .admin-table .status--pending {
+            background: rgba(198, 142, 63, 0.2);
+            color: var(--whiskey);
+        }
+        .admin-table .status--completed {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+        }
+        .admin-table .status--cancelled {
+            background: rgba(164, 74, 42, 0.2);
+            color: var(--rust);
+        }
+
+        .action-btn {
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--bg-secondary);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .action-btn:hover {
+            background: var(--whiskey);
+            color: var(--bg-primary);
+        }
+        .action-btn--danger:hover {
+            background: var(--rust);
+        }
+
+        /* Settings Form */
+        .settings-section {
+            background: var(--bg-card);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(198, 142, 63, 0.1);
+            margin-bottom: var(--space-xl);
+        }
+        .settings-section h3 {
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid rgba(198, 142, 63, 0.1);
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 2px dashed rgba(198, 142, 63, 0.3);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            position: relative;
+        }
+        .upload-area:hover {
+            border-color: var(--whiskey);
+            background: rgba(198, 142, 63, 0.05);
+        }
+        .upload-area.dragging {
+            border-color: var(--whiskey);
+            background: rgba(198, 142, 63, 0.1);
+        }
+        .upload-area svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--whiskey);
+            margin-bottom: var(--space-md);
+        }
+        .upload-area input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .upload-preview {
+            max-width: 300px;
+            margin-top: var(--space-md);
+        }
+        .upload-preview img {
+            width: 100%;
+            border-radius: var(--radius-md);
+        }
+
+        /* Gallery Management */
+        .gallery-grid-admin {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: var(--space-md);
+        }
+        .gallery-item-admin {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--bg-card);
+        }
+        .gallery-item-admin img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-item-admin .delete-btn {
+            position: absolute;
+            top: var(--space-xs);
+            right: var(--space-xs);
+            width: 28px;
+            height: 28px;
+            background: var(--rust);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: var(--transition-fast);
+        }
+        .gallery-item-admin:hover .delete-btn {
+            opacity: 1;
+        }
+        .gallery-item-admin .delete-btn:hover {
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+
+        /* Upload progress */
+        .upload-progress {
+            margin-top: var(--space-md);
+        }
+        .progress-bar {
+            height: 4px;
+            background: var(--bg-secondary);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .progress-bar__fill {
+            height: 100%;
+            background: var(--whiskey);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            bottom: var(--space-xl);
+            right: var(--space-xl);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-md);
+            color: white;
+            font-weight: 600;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+        .notification--success {
+            background: #4CAF50;
+        }
+        .notification--error {
+            background: var(--rust);
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: var(--space-3xl);
+            color: var(--text-muted);
+        }
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            stroke: var(--text-muted);
+            margin-bottom: var(--space-md);
+        }
+
+        /* Pricing Management */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+        }
+        .pricing-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+        }
+        .pricing-card__header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid rgba(198, 142, 63, 0.1);
+        }
+        .pricing-card__icon {
+            font-size: 2rem;
+        }
+        .pricing-card__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .pricing-card__subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .pricing-input-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        .pricing-input-group label {
+            flex: 1;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .pricing-input-group input {
+            width: 100px;
+            padding: var(--space-sm);
+            background: var(--bg-card);
+            border: 1px solid rgba(198, 142, 63, 0.3);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            text-align: right;
+            font-size: 1rem;
+        }
+        .pricing-input-group .currency {
+            color: var(--whiskey);
+            font-weight: 600;
+        }
+        .pricing-features {
+            margin-top: var(--space-md);
+        }
+        .pricing-features h5 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-sm);
+        }
+        .pricing-features textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: var(--space-sm);
+            background: var(--bg-card);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            resize: vertical;
+        }
+        .pricing-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--whiskey);
+            color: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: var(--space-sm);
+        }
+        .pricing-toggle {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        .pricing-toggle input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+        .pricing-section-tabs {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+        .pricing-section-tabs button {
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--bg-secondary);
+            border: 1px solid rgba(198, 142, 63, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        .pricing-section-tabs button.active {
+            background: var(--whiskey);
+            color: var(--bg-primary);
+            border-color: var(--whiskey);
+        }
+        .pricing-subsection {
+            display: none;
+        }
+        .pricing-subsection.active {
+            display: block;
+        }
+        .pricing-actions {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(198, 142, 63, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .admin-container {
+                padding: var(--space-md);
+            }
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-md);
+            }
+            .dashboard-nav {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: var(--space-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Login Form -->
+        <div class="login-container" id="loginForm">
+            <div class="logo">
+                <img src="images/logo.png" alt="WXXXC" onerror="this.style.display='none'">
+            </div>
+            <h1>Admin Login</h1>
+            <form id="adminLoginForm">
+                <div class="form__group">
+                    <label class="form__label" for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form__input" required>
+                </div>
+                <button type="submit" class="btn btn--primary" style="width: 100%;">Login</button>
+            </form>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="dashboard" id="dashboard">
+            <div class="dashboard-header">
+                <h1><span class="gradient-text">WXXXC</span> Admin</h1>
+                <button class="btn btn--secondary" onclick="logout()">Logout</button>
+            </div>
+
+            <nav class="dashboard-nav">
+                <button class="active" data-panel="overview">Overview</button>
+                <button data-panel="media">Media</button>
+                <button data-panel="gallery">Gallery</button>
+                <button data-panel="users">Users</button>
+                <button data-panel="pricing">Pricing</button>
+                <button data-panel="bookings">Bookings</button>
+                <button data-panel="messages">Messages</button>
+                <button data-panel="settings">Settings</button>
+            </nav>
+
+            <!-- Overview Panel -->
+            <div class="panel active" id="panel-overview">
+                <div class="admin-stats">
+                    <div class="admin-stat">
+                        <div class="admin-stat__value" id="stat-gallery">0</div>
+                        <div class="admin-stat__label">Gallery Images</div>
+                    </div>
+                    <div class="admin-stat">
+                        <div class="admin-stat__value" id="stat-bookings">0</div>
+                        <div class="admin-stat__label">Pending Bookings</div>
+                    </div>
+                    <div class="admin-stat">
+                        <div class="admin-stat__value" id="stat-messages">0</div>
+                        <div class="admin-stat__label">New Messages</div>
+                    </div>
+                    <div class="admin-stat">
+                        <div class="admin-stat__value" id="stat-reviews">132+</div>
+                        <div class="admin-stat__label">Five-Star Reviews</div>
+                    </div>
+                </div>
+
+                <h3>Quick Actions</h3>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-2xl);">
+                    <button class="btn btn--primary" onclick="switchPanel('media')">Upload Media</button>
+                    <button class="btn btn--secondary" onclick="switchPanel('gallery')">Manage Gallery</button>
+                    <button class="btn btn--secondary" onclick="switchPanel('settings')">Site Settings</button>
+                </div>
+            </div>
+
+            <!-- Media Panel (Logo & Hero) -->
+            <div class="panel" id="panel-media">
+                <div class="panel-header">
+                    <h2>Media Management</h2>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Site Logo</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
+                        Upload your logo image. Recommended: PNG with transparent background, at least 500px wide.
+                    </p>
+                    <div class="upload-area" id="logoDropzone">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p>Click or drag to upload logo</p>
+                        <input type="file" id="logoUpload" accept="image/*">
+                    </div>
+                    <div class="upload-preview" id="logoPreview">
+                        <img src="images/logo.png" alt="Current Logo" onerror="this.parentElement.style.display='none'">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Hero Background</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
+                        Upload a hero/banner image. Recommended: 1920x1080 or larger, JPG or PNG.
+                    </p>
+                    <div class="upload-area" id="heroDropzone">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p>Click or drag to upload hero image</p>
+                        <input type="file" id="heroUpload" accept="image/*">
+                    </div>
+                    <div class="upload-preview" id="heroPreview"></div>
+                </div>
+            </div>
+
+            <!-- Gallery Panel -->
+            <div class="panel" id="panel-gallery">
+                <div class="panel-header">
+                    <h2>Gallery Management</h2>
+                    <div>
+                        <button class="btn btn--primary" onclick="document.getElementById('galleryUpload').click()">
+                            + Add Images
+                        </button>
+                        <input type="file" id="galleryUpload" multiple accept="image/*" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Upload Multiple Images</h3>
+                    <div class="upload-area" id="galleryDropzone">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <p>Click or drag multiple images to upload</p>
+                        <input type="file" id="galleryBulkUpload" multiple accept="image/*">
+                    </div>
+                    <div class="upload-progress" id="galleryProgress" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-bar__fill" id="progressFill"></div>
+                        </div>
+                        <p style="margin-top: var(--space-sm); color: var(--text-secondary);" id="progressText">Uploading...</p>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Current Gallery (<span id="galleryCount">0</span> images)</h3>
+                    <div class="gallery-grid-admin" id="galleryAdmin">
+                        <!-- Gallery images will be loaded here -->
+                    </div>
+                    <div class="empty-state" id="galleryEmpty" style="display: none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <p>No gallery images yet</p>
+                        <p>Upload some images to get started!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Panel -->
+            <div class="panel" id="panel-users">
+                <div class="panel-header">
+                    <h2>User Management</h2>
+                    <button class="btn btn--secondary" onclick="loadUsers()">Refresh</button>
+                </div>
+
+                <div class="admin-stats" style="margin-bottom: var(--space-xl);">
+                    <div class="admin-stat">
+                        <div class="admin-stat__value" id="stat-total-users">0</div>
+                        <div class="admin-stat__label">Total Users</div>
+                    </div>
+                    <div class="admin-stat">
+                        <div class="admin-stat__value" id="stat-active-users">0</div>
+                        <div class="admin-stat__label">Active Users</div>
+                    </div>
+                    <div class="admin-stat">
+                        <div class="admin-stat__value" id="stat-pending-users">0</div>
+                        <div class="admin-stat__label">Pending Verification</div>
+                    </div>
+                    <div class="admin-stat">
+                        <div class="admin-stat__value" id="stat-banned-users">0</div>
+                        <div class="admin-stat__label">Banned</div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>World Users</h3>
+                    <div style="overflow-x: auto;">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Tier</th>
+                                    <th>Status</th>
+                                    <th>Verified</th>
+                                    <th>Joined</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTable">
+                                <tr>
+                                    <td colspan="7" style="text-align: center; color: var(--text-muted);">Loading users...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Panel -->
+            <div class="panel" id="panel-pricing">
+                <div class="panel-header">
+                    <h2>Pricing Management</h2>
+                </div>
+
+                <div class="pricing-section-tabs">
+                    <button class="active" onclick="switchPricingTab('booking')">Booking Services</button>
+                    <button onclick="switchPricingTab('subscriptions')">Subscription Tiers</button>
+                </div>
+
+                <!-- Booking Prices -->
+                <div class="pricing-subsection active" id="pricing-booking">
+                    <div class="settings-section">
+                        <h3>Booking Service Prices</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+                            Set prices for each booking service. Changes will update the booking page automatically.
+                        </p>
+
+                        <div class="pricing-grid" id="bookingPricingGrid">
+                            <!-- Custom Videos -->
+                            <div class="pricing-card" data-service="customVideos">
+                                <div class="pricing-card__header">
+                                    <span class="pricing-card__icon">🎬</span>
+                                    <div>
+                                        <div class="pricing-card__title">Custom Videos</div>
+                                        <div class="pricing-card__subtitle">Personalized content</div>
+                                    </div>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Base Price</label>
+                                    <span class="currency">$</span>
+                                    <input type="number" id="price-customVideos" value="50" min="0" step="5">
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Price Label</label>
+                                    <input type="text" id="label-customVideos" value="Starting at" style="width: 150px; text-align: left;">
+                                </div>
+                            </div>
+
+                            <!-- Live Sessions -->
+                            <div class="pricing-card" data-service="liveSessions">
+                                <div class="pricing-card__header">
+                                    <span class="pricing-card__icon">📹</span>
+                                    <div>
+                                        <div class="pricing-card__title">Live Sessions</div>
+                                        <div class="pricing-card__subtitle">One-on-one video calls</div>
+                                    </div>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Price per 30 min</label>
+                                    <span class="currency">$</span>
+                                    <input type="number" id="price-liveSessions" value="100" min="0" step="10">
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Price Label</label>
+                                    <input type="text" id="label-liveSessions" value="Per 30 min" style="width: 150px; text-align: left;">
+                                </div>
+                            </div>
+
+                            <!-- Ratings -->
+                            <div class="pricing-card" data-service="ratings">
+                                <div class="pricing-card__header">
+                                    <span class="pricing-card__icon">⭐</span>
+                                    <div>
+                                        <div class="pricing-card__title">Ratings</div>
+                                        <div class="pricing-card__subtitle">Honest feedback</div>
+                                    </div>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Base Price</label>
+                                    <span class="currency">$</span>
+                                    <input type="number" id="price-ratings" value="25" min="0" step="5">
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Price Label</label>
+                                    <input type="text" id="label-ratings" value="Starting at" style="width: 150px; text-align: left;">
+                                </div>
+                            </div>
+
+                            <!-- Sexting -->
+                            <div class="pricing-card" data-service="sexting">
+                                <div class="pricing-card__header">
+                                    <span class="pricing-card__icon">💬</span>
+                                    <div>
+                                        <div class="pricing-card__title">Sexting Sessions</div>
+                                        <div class="pricing-card__subtitle">Live text chat</div>
+                                    </div>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Price per 30 min</label>
+                                    <span class="currency">$</span>
+                                    <input type="number" id="price-sexting" value="30" min="0" step="5">
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Price Label</label>
+                                    <input type="text" id="label-sexting" value="Per 30 min" style="width: 150px; text-align: left;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pricing-actions">
+                            <button class="btn btn--primary" onclick="saveBookingPrices()">Save Booking Prices</button>
+                            <button class="btn btn--secondary" onclick="resetBookingPrices()">Reset to Defaults</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subscription Tiers -->
+                <div class="pricing-subsection" id="pricing-subscriptions">
+                    <div class="settings-section">
+                        <h3>Subscription Tier Prices</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+                            Manage subscription tiers and their pricing. Changes will update the subscribe page automatically.
+                        </p>
+
+                        <div class="pricing-grid" id="subscriptionPricingGrid">
+                            <!-- Free Tier -->
+                            <div class="pricing-card" data-tier="free">
+                                <div class="pricing-card__header">
+                                    <span class="pricing-card__icon">🤠</span>
+                                    <div>
+                                        <div class="pricing-card__title">Ranch Hand</div>
+                                        <div class="pricing-card__subtitle">Free tier</div>
+                                    </div>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Price</label>
+                                    <span class="currency">$</span>
+                                    <input type="number" value="0" disabled style="opacity: 0.5;">
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Tagline</label>
+                                    <input type="text" id="tagline-free" value="Just gettin' started" style="width: 180px; text-align: left;">
+                                </div>
+                            </div>
+
+                            <!-- Silver Tier -->
+                            <div class="pricing-card" data-tier="silver">
+                                <div class="pricing-card__header">
+                                    <span class="pricing-card__icon">⭐</span>
+                                    <div>
+                                        <div class="pricing-card__title">Silver Spur</div>
+                                        <div class="pricing-card__subtitle">Basic paid tier</div>
+                                    </div>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Monthly Price</label>
+                                    <span class="currency">$</span>
+                                    <input type="number" id="price-silver" value="9.99" min="0" step="0.99">
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Tagline</label>
+                                    <input type="text" id="tagline-silver" value="For the dedicated fans" style="width: 180px; text-align: left;">
+                                </div>
+                            </div>
+
+                            <!-- Gold Tier -->
+                            <div class="pricing-card" data-tier="gold">
+                                <div class="pricing-card__header">
+                                    <span class="pricing-card__icon">🏆</span>
+                                    <div>
+                                        <div class="pricing-card__title">Gold Buckle</div>
+                                        <div class="pricing-card__subtitle">Most popular<span class="pricing-badge">Featured</span></div>
+                                    </div>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Monthly Price</label>
+                                    <span class="currency">$</span>
+                                    <input type="number" id="price-gold" value="24.99" min="0" step="0.99">
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Booking Discount</label>
+                                    <input type="number" id="discount-gold" value="10" min="0" max="50" style="width: 80px;">
+                                    <span>%</span>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Tagline</label>
+                                    <input type="text" id="tagline-gold" value="The real deal" style="width: 180px; text-align: left;">
+                                </div>
+                            </div>
+
+                            <!-- VIP Tier -->
+                            <div class="pricing-card" data-tier="vip">
+                                <div class="pricing-card__header">
+                                    <span class="pricing-card__icon">👑</span>
+                                    <div>
+                                        <div class="pricing-card__title">VIP Cowboy</div>
+                                        <div class="pricing-card__subtitle">Elite tier<span class="pricing-badge">Elite</span></div>
+                                    </div>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Monthly Price</label>
+                                    <span class="currency">$</span>
+                                    <input type="number" id="price-vip" value="49.99" min="0" step="0.99">
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Booking Discount</label>
+                                    <input type="number" id="discount-vip" value="25" min="0" max="50" style="width: 80px;">
+                                    <span>%</span>
+                                </div>
+                                <div class="pricing-input-group">
+                                    <label>Tagline</label>
+                                    <input type="text" id="tagline-vip" value="Top of the herd" style="width: 180px; text-align: left;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pricing-actions">
+                            <button class="btn btn--primary" onclick="saveSubscriptionPrices()">Save Subscription Prices</button>
+                            <button class="btn btn--secondary" onclick="resetSubscriptionPrices()">Reset to Defaults</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookings Panel -->
+            <div class="panel" id="panel-bookings">
+                <div class="panel-header">
+                    <h2>Booking Requests</h2>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Service</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsTable">
+                        <tr>
+                            <td colspan="6" style="text-align: center; color: var(--text-muted);">No bookings yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Messages Panel -->
+            <div class="panel" id="panel-messages">
+                <div class="panel-header">
+                    <h2>Messages</h2>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>From</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messagesTable">
+                        <tr>
+                            <td colspan="5" style="text-align: center; color: var(--text-muted);">No messages yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Settings Panel -->
+            <div class="panel" id="panel-settings">
+                <div class="panel-header">
+                    <h2>Site Settings</h2>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Site Info</h3>
+                    <form id="siteSettingsForm">
+                        <div class="form__group">
+                            <label class="form__label">Tagline</label>
+                            <input type="text" id="settingTagline" class="form__input" value="Country Bred. Fully Loaded.">
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label">Review Count</label>
+                            <input type="number" id="settingReviews" class="form__input" value="132">
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label">Contact Email</label>
+                            <input type="email" id="settingEmail" class="form__input" value="contact@wyattxxxcole.com">
+                        </div>
+                        <button type="submit" class="btn btn--primary">Save Settings</button>
+                    </form>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Change Password</h3>
+                    <form id="passwordForm">
+                        <div class="form__group">
+                            <label class="form__label">Current Password</label>
+                            <input type="password" id="currentPassword" class="form__input" required>
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label">New Password</label>
+                            <input type="password" id="newPassword" class="form__input" required>
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label">Confirm Password</label>
+                            <input type="password" id="confirmPassword" class="form__input" required>
+                        </div>
+                        <button type="submit" class="btn btn--rust">Update Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API Base URL
+        const API_BASE = 'api/upload.php';
+
+        // Token management
+        let authToken = localStorage.getItem('adminToken') || '';
+
+        // Check if logged in on load
+        if (authToken) {
+            showDashboard();
+            loadGallery();
+            loadSettings();
+        }
+
+        // Login form
+        document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const res = await fetch(`${API_BASE}?action=login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await res.json();
+
+                if (data.success && data.token) {
+                    authToken = data.token;
+                    localStorage.setItem('adminToken', authToken);
+                    showDashboard();
+                    loadGallery();
+                    loadSettings();
+                    showNotification('Welcome back!', 'success');
+                } else {
+                    showNotification(data.error || 'Login failed', 'error');
+                }
+            } catch (err) {
+                // Fallback for demo
+                if (username === 'admin' && password === 'WyattAdmin2025!') {
+                    authToken = 'demo-token';
+                    localStorage.setItem('adminToken', authToken);
+                    showDashboard();
+                    loadGallery();
+                    loadSettings();
+                    showNotification('Welcome back!', 'success');
+                } else {
+                    showNotification('Login failed. Check credentials.', 'error');
+                }
+            }
+        });
+
+        function showDashboard() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('dashboard').classList.add('active');
+        }
+
+        function logout() {
+            localStorage.removeItem('adminToken');
+            authToken = '';
+            location.reload();
+        }
+
+        // Panel navigation
+        document.querySelectorAll('.dashboard-nav button').forEach(btn => {
+            btn.addEventListener('click', () => switchPanel(btn.dataset.panel));
+        });
+
+        function switchPanel(panelName) {
+            document.querySelectorAll('.dashboard-nav button').forEach(b => {
+                b.classList.toggle('active', b.dataset.panel === panelName);
+            });
+            document.querySelectorAll('.panel').forEach(p => {
+                p.classList.toggle('active', p.id === `panel-${panelName}`);
+            });
+        }
+
+        // File upload helper
+        async function uploadFile(file, action) {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const res = await fetch(`${API_BASE}?action=${action}&token=${authToken}`, {
+                method: 'POST',
+                body: formData
+            });
+
+            return await res.json();
+        }
+
+        // Logo upload
+        document.getElementById('logoUpload').addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            try {
+                const result = await uploadFile(file, 'upload-logo');
+                if (result.success) {
+                    document.querySelector('#logoPreview img').src = result.url + '?t=' + Date.now();
+                    document.getElementById('logoPreview').style.display = 'block';
+                    showNotification('Logo uploaded successfully!', 'success');
+                } else {
+                    showNotification(result.error || 'Upload failed', 'error');
+                }
+            } catch (err) {
+                showNotification('Upload failed', 'error');
+            }
+        });
+
+        // Hero upload
+        document.getElementById('heroUpload').addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            try {
+                const result = await uploadFile(file, 'upload-hero');
+                if (result.success) {
+                    let preview = document.getElementById('heroPreview');
+                    preview.innerHTML = `<img src="${result.url}?t=${Date.now()}" alt="Hero Image">`;
+                    showNotification('Hero image uploaded successfully!', 'success');
+                } else {
+                    showNotification(result.error || 'Upload failed', 'error');
+                }
+            } catch (err) {
+                showNotification('Upload failed', 'error');
+            }
+        });
+
+        // Gallery upload (bulk)
+        const galleryInputs = [
+            document.getElementById('galleryUpload'),
+            document.getElementById('galleryBulkUpload')
+        ];
+
+        galleryInputs.forEach(input => {
+            input.addEventListener('change', async (e) => {
+                const files = e.target.files;
+                if (!files.length) return;
+
+                const progressDiv = document.getElementById('galleryProgress');
+                const progressFill = document.getElementById('progressFill');
+                const progressText = document.getElementById('progressText');
+
+                progressDiv.style.display = 'block';
+                let uploaded = 0;
+                const total = files.length;
+
+                for (let i = 0; i < files.length; i++) {
+                    try {
+                        progressText.textContent = `Uploading ${i + 1} of ${total}...`;
+                        progressFill.style.width = ((i / total) * 100) + '%';
+
+                        await uploadFile(files[i], 'upload-gallery');
+                        uploaded++;
+                    } catch (err) {
+                        console.error('Failed to upload:', files[i].name);
+                    }
+                }
+
+                progressFill.style.width = '100%';
+                progressText.textContent = `Uploaded ${uploaded} of ${total} images`;
+
+                setTimeout(() => {
+                    progressDiv.style.display = 'none';
+                    progressFill.style.width = '0%';
+                }, 2000);
+
+                loadGallery();
+                showNotification(`${uploaded} images uploaded!`, 'success');
+                e.target.value = '';
+            });
+        });
+
+        // Load gallery
+        async function loadGallery() {
+            try {
+                const res = await fetch(`${API_BASE}?action=list-gallery`);
+                const data = await res.json();
+
+                const container = document.getElementById('galleryAdmin');
+                const emptyState = document.getElementById('galleryEmpty');
+                const countEl = document.getElementById('galleryCount');
+                const statEl = document.getElementById('stat-gallery');
+
+                if (data.success && data.images.length > 0) {
+                    container.innerHTML = data.images.map(img => `
+                        <div class="gallery-item-admin" data-filename="${img.filename}">
+                            <img src="${img.url}" alt="" loading="lazy">
+                            <button class="delete-btn" onclick="deleteGalleryImage('${img.filename}')">&times;</button>
+                        </div>
+                    `).join('');
+                    emptyState.style.display = 'none';
+                    countEl.textContent = data.images.length;
+                    statEl.textContent = data.images.length;
+                } else {
+                    container.innerHTML = '';
+                    emptyState.style.display = 'block';
+                    countEl.textContent = '0';
+                    statEl.textContent = '0';
+                }
+            } catch (err) {
+                console.error('Failed to load gallery:', err);
+            }
+        }
+
+        // Delete gallery image
+        async function deleteGalleryImage(filename) {
+            if (!confirm('Delete this image?')) return;
+
+            try {
+                const res = await fetch(`${API_BASE}?action=delete-gallery&token=${authToken}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ filename })
+                });
+
+                const data = await res.json();
+                if (data.success) {
+                    document.querySelector(`[data-filename="${filename}"]`).remove();
+                    loadGallery();
+                    showNotification('Image deleted', 'success');
+                } else {
+                    showNotification(data.error || 'Delete failed', 'error');
+                }
+            } catch (err) {
+                showNotification('Delete failed', 'error');
+            }
+        }
+
+        // Load settings
+        async function loadSettings() {
+            try {
+                const res = await fetch(`${API_BASE}?action=get-settings`);
+                const data = await res.json();
+
+                if (data.success) {
+                    document.getElementById('settingTagline').value = data.settings.tagline;
+                    document.getElementById('settingReviews').value = data.settings.reviewCount;
+                    document.getElementById('settingEmail').value = data.settings.contactEmail;
+
+                    if (data.settings.heroUrl) {
+                        document.getElementById('heroPreview').innerHTML =
+                            `<img src="${data.settings.heroUrl}" alt="Hero">`;
+                    }
+                }
+            } catch (err) {
+                console.error('Failed to load settings:', err);
+            }
+        }
+
+        // Save settings
+        document.getElementById('siteSettingsForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const settings = {
+                tagline: document.getElementById('settingTagline').value,
+                reviewCount: document.getElementById('settingReviews').value,
+                contactEmail: document.getElementById('settingEmail').value
+            };
+
+            try {
+                const res = await fetch(`${API_BASE}?action=save-settings&token=${authToken}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(settings)
+                });
+
+                const data = await res.json();
+                if (data.success) {
+                    showNotification('Settings saved!', 'success');
+                } else {
+                    showNotification(data.error || 'Save failed', 'error');
+                }
+            } catch (err) {
+                showNotification('Save failed', 'error');
+            }
+        });
+
+        // Drag & drop support
+        document.querySelectorAll('.upload-area').forEach(area => {
+            area.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                area.classList.add('dragging');
+            });
+            area.addEventListener('dragleave', () => {
+                area.classList.remove('dragging');
+            });
+            area.addEventListener('drop', (e) => {
+                e.preventDefault();
+                area.classList.remove('dragging');
+                const input = area.querySelector('input[type="file"]');
+                if (input && e.dataTransfer.files.length) {
+                    input.files = e.dataTransfer.files;
+                    input.dispatchEvent(new Event('change'));
+                }
+            });
+        });
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const existing = document.querySelector('.notification');
+            if (existing) existing.remove();
+
+            const notification = document.createElement('div');
+            notification.className = `notification notification--${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        // ========== PRICING MANAGEMENT ==========
+        const PRICING_API = 'api/pricing.php';
+        let currentPricing = null;
+
+        // Load pricing on dashboard load
+        async function loadPricing() {
+            try {
+                const res = await fetch(`${PRICING_API}?action=get`);
+                const data = await res.json();
+                if (data.success) {
+                    currentPricing = data.pricing;
+                    populatePricingForms(data.pricing);
+                }
+            } catch (err) {
+                console.error('Failed to load pricing:', err);
+            }
+        }
+
+        // Populate form fields with current pricing
+        function populatePricingForms(pricing) {
+            // Booking prices
+            if (pricing.booking) {
+                const b = pricing.booking;
+                if (b.customVideos) {
+                    document.getElementById('price-customVideos').value = b.customVideos.basePrice || 50;
+                    document.getElementById('label-customVideos').value = b.customVideos.priceLabel || 'Starting at';
+                }
+                if (b.liveSessions) {
+                    document.getElementById('price-liveSessions').value = b.liveSessions.basePrice || 100;
+                    document.getElementById('label-liveSessions').value = b.liveSessions.priceLabel || 'Per 30 min';
+                }
+                if (b.ratings) {
+                    document.getElementById('price-ratings').value = b.ratings.basePrice || 25;
+                    document.getElementById('label-ratings').value = b.ratings.priceLabel || 'Starting at';
+                }
+                if (b.sexting) {
+                    document.getElementById('price-sexting').value = b.sexting.basePrice || 30;
+                    document.getElementById('label-sexting').value = b.sexting.priceLabel || 'Per 30 min';
+                }
+            }
+
+            // Subscription prices
+            if (pricing.subscriptions) {
+                const s = pricing.subscriptions;
+                if (s.free) {
+                    document.getElementById('tagline-free').value = s.free.tagline || "Just gettin' started";
+                }
+                if (s.silver) {
+                    document.getElementById('price-silver').value = s.silver.price || 9.99;
+                    document.getElementById('tagline-silver').value = s.silver.tagline || 'For the dedicated fans';
+                }
+                if (s.gold) {
+                    document.getElementById('price-gold').value = s.gold.price || 24.99;
+                    document.getElementById('discount-gold').value = s.gold.discount || 10;
+                    document.getElementById('tagline-gold').value = s.gold.tagline || 'The real deal';
+                }
+                if (s.vip) {
+                    document.getElementById('price-vip').value = s.vip.price || 49.99;
+                    document.getElementById('discount-vip').value = s.vip.discount || 25;
+                    document.getElementById('tagline-vip').value = s.vip.tagline || 'Top of the herd';
+                }
+            }
+        }
+
+        // Switch pricing tabs
+        function switchPricingTab(tab) {
+            document.querySelectorAll('.pricing-section-tabs button').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.toLowerCase().includes(tab.substring(0, 4)));
+            });
+            document.querySelectorAll('.pricing-subsection').forEach(section => {
+                section.classList.toggle('active', section.id === `pricing-${tab}`);
+            });
+        }
+
+        // Save booking prices
+        async function saveBookingPrices() {
+            const booking = {
+                customVideos: {
+                    ...currentPricing?.booking?.customVideos,
+                    basePrice: parseFloat(document.getElementById('price-customVideos').value) || 50,
+                    priceLabel: document.getElementById('label-customVideos').value || 'Starting at'
+                },
+                liveSessions: {
+                    ...currentPricing?.booking?.liveSessions,
+                    basePrice: parseFloat(document.getElementById('price-liveSessions').value) || 100,
+                    priceLabel: document.getElementById('label-liveSessions').value || 'Per 30 min'
+                },
+                ratings: {
+                    ...currentPricing?.booking?.ratings,
+                    basePrice: parseFloat(document.getElementById('price-ratings').value) || 25,
+                    priceLabel: document.getElementById('label-ratings').value || 'Starting at'
+                },
+                sexting: {
+                    ...currentPricing?.booking?.sexting,
+                    basePrice: parseFloat(document.getElementById('price-sexting').value) || 30,
+                    priceLabel: document.getElementById('label-sexting').value || 'Per 30 min'
+                }
+            };
+
+            try {
+                const res = await fetch(`${PRICING_API}?action=save-booking`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify(booking)
+                });
+                const data = await res.json();
+                if (data.success) {
+                    currentPricing.booking = data.booking;
+                    showNotification('Booking prices saved!', 'success');
+                } else {
+                    showNotification(data.error || 'Failed to save', 'error');
+                }
+            } catch (err) {
+                showNotification('Failed to save prices', 'error');
+            }
+        }
+
+        // Save subscription prices
+        async function saveSubscriptionPrices() {
+            const subscriptions = {
+                free: {
+                    ...currentPricing?.subscriptions?.free,
+                    tagline: document.getElementById('tagline-free').value
+                },
+                silver: {
+                    ...currentPricing?.subscriptions?.silver,
+                    price: parseFloat(document.getElementById('price-silver').value) || 9.99,
+                    tagline: document.getElementById('tagline-silver').value
+                },
+                gold: {
+                    ...currentPricing?.subscriptions?.gold,
+                    price: parseFloat(document.getElementById('price-gold').value) || 24.99,
+                    discount: parseInt(document.getElementById('discount-gold').value) || 10,
+                    tagline: document.getElementById('tagline-gold').value
+                },
+                vip: {
+                    ...currentPricing?.subscriptions?.vip,
+                    price: parseFloat(document.getElementById('price-vip').value) || 49.99,
+                    discount: parseInt(document.getElementById('discount-vip').value) || 25,
+                    tagline: document.getElementById('tagline-vip').value
+                }
+            };
+
+            try {
+                const res = await fetch(`${PRICING_API}?action=save-subscriptions`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify(subscriptions)
+                });
+                const data = await res.json();
+                if (data.success) {
+                    currentPricing.subscriptions = data.subscriptions;
+                    showNotification('Subscription prices saved!', 'success');
+                } else {
+                    showNotification(data.error || 'Failed to save', 'error');
+                }
+            } catch (err) {
+                showNotification('Failed to save prices', 'error');
+            }
+        }
+
+        // Reset pricing to defaults
+        async function resetBookingPrices() {
+            if (!confirm('Reset booking prices to defaults?')) return;
+            try {
+                const res = await fetch(`${PRICING_API}?action=reset`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                const data = await res.json();
+                if (data.success) {
+                    currentPricing = data.pricing;
+                    populatePricingForms(data.pricing);
+                    showNotification('Prices reset to defaults', 'success');
+                }
+            } catch (err) {
+                showNotification('Reset failed', 'error');
+            }
+        }
+
+        async function resetSubscriptionPrices() {
+            if (!confirm('Reset subscription prices to defaults?')) return;
+            try {
+                const res = await fetch(`${PRICING_API}?action=reset`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                const data = await res.json();
+                if (data.success) {
+                    currentPricing = data.pricing;
+                    populatePricingForms(data.pricing);
+                    showNotification('Prices reset to defaults', 'success');
+                }
+            } catch (err) {
+                showNotification('Reset failed', 'error');
+            }
+        }
+
+        // Load pricing when logged in
+        if (authToken) {
+            loadPricing();
+            loadUsers();
+        }
+
+        // ========== USER MANAGEMENT ==========
+        const WORLD_API = 'api/world.php';
+
+        async function loadUsers() {
+            try {
+                const res = await fetch(`${WORLD_API}?action=list-users`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    renderUsersTable(data.users);
+                    updateUserStats(data.users);
+                } else {
+                    document.getElementById('usersTable').innerHTML =
+                        '<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">Failed to load users</td></tr>';
+                }
+            } catch (err) {
+                console.error('Failed to load users:', err);
+                document.getElementById('usersTable').innerHTML =
+                    '<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">Error loading users</td></tr>';
+            }
+        }
+
+        function updateUserStats(users) {
+            const total = users.length;
+            const active = users.filter(u => u.status === 'active').length;
+            const pending = users.filter(u => u.status === 'pending' || !u.emailVerified).length;
+            const banned = users.filter(u => u.status === 'banned').length;
+
+            document.getElementById('stat-total-users').textContent = total;
+            document.getElementById('stat-active-users').textContent = active;
+            document.getElementById('stat-pending-users').textContent = pending;
+            document.getElementById('stat-banned-users').textContent = banned;
+        }
+
+        function renderUsersTable(users) {
+            const tbody = document.getElementById('usersTable');
+
+            if (!users || users.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">No users yet</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = users.map(user => {
+                const statusClass = user.status === 'active' ? 'status--completed' :
+                                   user.status === 'banned' ? 'status--cancelled' : 'status--pending';
+                const verifiedIcon = user.emailVerified ? '✓' : '✕';
+                const verifiedColor = user.emailVerified ? '#4CAF50' : 'var(--rust)';
+                const joinDate = user.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A';
+
+                let actions = '';
+                if (user.status === 'pending' || !user.emailVerified) {
+                    actions += `<button class="action-btn" onclick="approveUser('${user.id}')">Approve</button> `;
+                }
+                if (user.status !== 'banned') {
+                    actions += `<button class="action-btn action-btn--danger" onclick="banUser('${user.id}')">Ban</button> `;
+                } else {
+                    actions += `<button class="action-btn" onclick="unbanUser('${user.id}')">Unban</button> `;
+                }
+                actions += `<button class="action-btn action-btn--danger" onclick="deleteUser('${user.id}')">Delete</button>`;
+
+                return `
+                    <tr data-user-id="${user.id}">
+                        <td><strong>${user.username}</strong></td>
+                        <td>${user.email}</td>
+                        <td>
+                            <select onchange="updateUserTier('${user.id}', this.value)" style="background: var(--bg-card); color: var(--text-primary); border: 1px solid rgba(198,142,63,0.3); padding: 4px 8px; border-radius: 4px;">
+                                <option value="free" ${user.tier === 'free' ? 'selected' : ''}>Free</option>
+                                <option value="silver" ${user.tier === 'silver' ? 'selected' : ''}>Silver</option>
+                                <option value="gold" ${user.tier === 'gold' ? 'selected' : ''}>Gold</option>
+                                <option value="vip" ${user.tier === 'vip' ? 'selected' : ''}>VIP</option>
+                            </select>
+                        </td>
+                        <td><span class="status ${statusClass}">${user.status}</span></td>
+                        <td style="color: ${verifiedColor}; font-weight: bold;">${verifiedIcon}</td>
+                        <td>${joinDate}</td>
+                        <td>${actions}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        async function approveUser(userId) {
+            try {
+                const res = await fetch(`${WORLD_API}?action=approve-user`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({ id: userId })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showNotification('User approved!', 'success');
+                    loadUsers();
+                } else {
+                    showNotification(data.error || 'Failed to approve', 'error');
+                }
+            } catch (err) {
+                showNotification('Error approving user', 'error');
+            }
+        }
+
+        async function banUser(userId) {
+            const reason = prompt('Ban reason (optional):');
+            if (reason === null) return; // Cancelled
+
+            try {
+                const res = await fetch(`${WORLD_API}?action=ban-user`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({ id: userId, reason: reason || 'Violated terms of service' })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showNotification('User banned', 'success');
+                    loadUsers();
+                } else {
+                    showNotification(data.error || 'Failed to ban', 'error');
+                }
+            } catch (err) {
+                showNotification('Error banning user', 'error');
+            }
+        }
+
+        async function unbanUser(userId) {
+            if (!confirm('Unban this user?')) return;
+
+            try {
+                const res = await fetch(`${WORLD_API}?action=unban-user`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({ id: userId })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showNotification('User unbanned', 'success');
+                    loadUsers();
+                } else {
+                    showNotification(data.error || 'Failed to unban', 'error');
+                }
+            } catch (err) {
+                showNotification('Error unbanning user', 'error');
+            }
+        }
+
+        async function deleteUser(userId) {
+            if (!confirm('Permanently delete this user? This cannot be undone.')) return;
+
+            try {
+                const res = await fetch(`${WORLD_API}?action=delete-user`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({ id: userId })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showNotification('User deleted', 'success');
+                    loadUsers();
+                } else {
+                    showNotification(data.error || 'Failed to delete', 'error');
+                }
+            } catch (err) {
+                showNotification('Error deleting user', 'error');
+            }
+        }
+
+        async function updateUserTier(userId, tier) {
+            try {
+                const res = await fetch(`${WORLD_API}?action=update-user`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({ id: userId, tier: tier })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showNotification('Tier updated', 'success');
+                } else {
+                    showNotification(data.error || 'Failed to update', 'error');
+                    loadUsers(); // Reload to reset dropdown
+                }
+            } catch (err) {
+                showNotification('Error updating tier', 'error');
+                loadUsers();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | WYATT XXX COLE</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000000;
+            color: #F5EDE4;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .offline-container {
+            max-width: 500px;
+        }
+
+        .offline-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            color: #C68E3F;
+        }
+
+        p {
+            color: #9A8873;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #C68E3F;
+            color: #000;
+            text-decoration: none;
+            font-family: 'Teko', sans-serif;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #A44A2A;
+            color: #F5EDE4;
+        }
+
+        .logo {
+            margin-bottom: 2rem;
+        }
+
+        .logo img {
+            max-width: 150px;
+            opacity: 0.8;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #C68E3F;
+            margin-top: 2rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="logo">
+            <img src="images/logo.png" alt="WXXXC" onerror="this.style.display='none'">
+        </div>
+        <div class="offline-icon">📡</div>
+        <h1>You're Offline</h1>
+        <p>Looks like you've lost your connection, partner. Check your internet and try again.</p>
+        <button class="btn" onclick="location.reload()">Try Again</button>
+        <p class="tagline">"Country Bred. Fully Loaded."</p>
+    </div>
+
+    <script>
+        // Auto-refresh when connection is restored
+        window.addEventListener('online', () => {
+            location.reload();
+        });
+    </script>
+</body>
+</html>
